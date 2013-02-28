@@ -1,3 +1,15 @@
+/*
+Valid config options for all layer sources:
+
+    source: String referencing a source from sources
+    name: String - the name from the source’s store (only for sources that maintain a store)
+    visibility: Boolean - initial layer visibility
+    opacity: Number - initial layer.opacity
+    group: String - group for the layer when the viewer also uses a gxp.plugins.LayerTree. Set this to “background” to make the layer a base layer
+    fixed: Boolean - Set to true to prevent the layer from being removed by a gxp.plugins.RemoveLayer tool and from being dragged in a gxp.plugins.LayerTree
+    selected: Boolean - Set to true to mark the layer selected
+*/
+
 var layers = [
 
     //----- POLIGONOS

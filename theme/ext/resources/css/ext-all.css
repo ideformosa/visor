@@ -6854,7 +6854,8 @@ body.x-body-masked .x-window-plain .x-window-mc {
 
 .x-accordion-hd {
 	color:#222;
-    font-weight:normal;
+    font-weight:bold;
+    text-align: center;
     background-image: url(../images/default/panel/light-hd.gif);
 }
 
