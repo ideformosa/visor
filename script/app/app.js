@@ -40,7 +40,7 @@ var app = new gxp.Viewer({
             },
             items: [{
                     title: "Capas",
-                    id: "layers_tree",
+                    id: "layer_tree",
                     //border: false,
                     flex: 1
                 }, {
@@ -88,7 +88,7 @@ var app = new gxp.Viewer({
 	},
 
 	tools: [
-        //---------- tabs ----------
+        //---------- LAYER TREE ----------
         {
             ptype: "gxp_layertree",
             groups: tree_groups, // tree_groups.js
@@ -98,14 +98,16 @@ var app = new gxp.Viewer({
                 autoScroll: true,
                 animate: true,
                 tbar: [],
-                bbar: ["Opacidad: ", i]//,
-                /*listeners: {
-                    "insert": setearSlider,
-                    "append": setearSlider
-                }*/
+                //bbar: ["Opacidad: ", i]//,
+                listeners: {
+                 //   "insert": setearSlider,
+                   "append": setearSlider
+                   //"click": setearSlider
+                }
             },
-            outputTarget: "layers_tree"
-        }, {
+            outputTarget: "layer_tree"
+        },
+        {
             ptype: "gxp_legend",
             outputTarget: "legend",
             outputConfig: {
@@ -116,6 +118,7 @@ var app = new gxp.Viewer({
         //------- tree.tbar --------
         {
             ptype: "gxp_addlayers",
+            addActionText: "Más...",
             actionTarget: "tree.tbar"
         }, {
             ptype: "gxp_removelayer",
@@ -127,6 +130,24 @@ var app = new gxp.Viewer({
             ptype: "gxp_layerproperties",
             actionTarget: ["tree.tbar", "tree.contextMenu"]
         },
+        /*{
+            xtype: "gx_opacityslider",
+            outputConfig: {
+                id: "op_slider",
+                width: 120,
+                decimalPrecision: 1,
+                increment: 10,
+                value: 50,
+                //disabled: true,
+                layer: null //,
+                listeners: {
+                    change: function (a, b) {
+                        this.layer.setOpacity(b / 100);
+                    }
+                }
+            },
+            outputTarget: "tree.tbar"
+        },*/
         //------- map.tbar ---------
         {
             ptype: "gxp_navigationhistory",
@@ -215,6 +236,14 @@ var app = new gxp.Viewer({
         }*/
 	],
 
+    mapItems: [{
+            xtype: "gx_zoomslider",
+            vertical: true,
+            height: 100
+        },{
+            xtype: "gxp_scaleoverlay"
+    }],
+
     mapPlugins: {
         ptype:"gxp_loadingindicator",
         loadingMapMessage:"Cargando mapa..."
@@ -233,18 +262,16 @@ var app = new gxp.Viewer({
         zoom: 7,
         //stateId: "map",
         //prettyStateKeys: true,
-        //extent: new OpenLayers.Bounds(-63, -28, -57, -22),
-        //extent: [-63, -28, -57, -22],
 
-        layers: layers,  // layers.js
+        layers: layers//,  // layers.js
 
-        items: [{
+        /*items: [{
             xtype: "gx_zoomslider",
             vertical: true,
             height: 100
         },{
             xtype: "gxp_scaleoverlay"
-        }]
+        }]*/
     }
 });
 
@@ -266,10 +293,14 @@ app.mapPanel.map.addControl(
     })
 );
 
-/*app.mapPanel.map.events.register("mousemove", app.mapPanel.map, function(e) {
-    var position = this.events.getMousePosition(e);
-    OpenLayers.Util.getElement("coords").innerHTML = position;
-});*/
+app.on("ready", function() {
 
+    treeTbar = Ext.getCmp('layer_tree').items.items[0].toolbars[0];
 
-//});
+    treeTbar.add(new Ext.Toolbar.Spacer({ width: 8 }));
+    treeTbar.add(slider);
+    treeTbar.doLayout();
+
+    //this.portal.items.items[1].items.items[0].items.items[0].toolbars[0].doLayout();
+    //Ext.getCmp('layer_tree').items.items[0].toolbars[0].add(slider);
+});

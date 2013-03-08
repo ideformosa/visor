@@ -34,9 +34,9 @@ var tree_groups = {
     },
     "cartografia": {
         title: "Cartografía Catastral",
-        expanded: false//,  puede ser agregando esto a cada grupo ¿?¿?
+        expanded: false//,
         /*listeners: {
-            'append': {fn: setearSlider, single: true}
+            'append': setearSlider //{fn: setearSlider, single: true}
         }*/
     },
     "educacion": {
