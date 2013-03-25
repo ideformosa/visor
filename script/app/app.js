@@ -46,10 +46,10 @@ var app = new gxp.Viewer({
                 }, {
                     title: "Leyenda",
                     id: "legend"
-                }, {
+                }/*, {
                     title: "Fuentes",
                     id: "fuentes"
-                }]
+                }*/]
             //}]
         }, {
                 // container for the FeatureGrid
@@ -176,13 +176,15 @@ var app = new gxp.Viewer({
             ptype: "gxp_wmsgetfeatureinfo",
             //format: "grid",
             outputConfig: {
-                width: 500, //"auto",
+                width: 550, //"auto",
                 height: 400,
                 draggable: true
             },
             showButtonText: true,
+            buttonText:"Identificar",
+            //text: "Identificar",
             actionTarget: "map.tbar",
-            toggleGroup: "mapnav"
+            toggleGroup: "tools"
         },{
             ptype: "gxp_measure",
             outputConfig: {
@@ -191,13 +193,7 @@ var app = new gxp.Viewer({
             },
             showButtonText: true,
             actionTarget: "map.tbar",
-            toggleGroup: "mapnav"
-        }, {
-            ptype: "gxp_print",
-            printService: "http://idef.formosa.gob.ar/servicios/pdf/",
-            includeLegend: true,
-            showButtonText: true,
-            actionTarget: "map.tbar"
+            toggleGroup: "tools"
         }, {
             ptype: "gxp_queryform",
             featureManager: "featuremanager",
@@ -208,11 +204,20 @@ var app = new gxp.Viewer({
             actionTarget: ["map.tbar"], //["featuregrid.bbar", "tree.contextMenu"],
             appendActions: false
         }, {
-            actions: ["->"],
+            ptype: "gxp_print",
+            printService: "http://idef.formosa.gob.ar/servicios/pdf/",
+            includeLegend: true,
+            showButtonText: true,
             actionTarget: "map.tbar"
         }, {
+            actions: ["->"],
+            actionTarget: "map.tbar"
+        }, /*{
             actions: ["loginbutton"],
             actionTarget: "map.tbar"
+        },*/
+        {
+            actions:["<a href=\"http://idef.formosa.gob.ar/Contacto.html\" target=\"_blank\">Sugerencias / Inconvenientes...</a>"]
         },
         //---------  south grid --------------
         {

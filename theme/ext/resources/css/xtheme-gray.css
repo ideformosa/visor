@@ -1539,7 +1539,7 @@ body.x-body-masked .x-window-plain .x-window-mc {
 
 .x-accordion-hd {
 	color:#222;
-    font-weight:normal;
+    font-weight:bold;
     background-image: url(../images/gray/panel/light-hd.gif);
 }
 

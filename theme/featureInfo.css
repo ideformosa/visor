@@ -1,11 +1,16 @@
+
+table.featureInfo {
+	width: 100%;
+}
+
 table.featureInfo, table.featureInfo td, table.featureInfo th {
-		border:1px solid #ddd;
-		border-collapse:collapse;
-		margin:0;
-		/*padding:0;
-		font-family: 'Ubuntu Mono';*/
-		font-size: 100%;
-		padding:.2em;
+	border:1px solid #ddd;
+	border-collapse:collapse;
+	margin:0;
+	/*padding:0;
+	font-family: 'Ubuntu Mono';*/
+	font-size: 100%;
+	padding:.2em;
 }
 
 table.featureInfo th {
@@ -16,11 +21,12 @@ table.featureInfo th {
 
 table.featureInfo td{
 	background:#fff;
-	width: 20px;
+	/*width: 20px;*/
 }
 
 table.featureInfo tr.odd td{
 	background:#eee;
+	white-space:nowrap;
 }
 
 table.featureInfo caption{

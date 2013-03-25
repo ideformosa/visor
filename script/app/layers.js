@@ -12,6 +12,21 @@ Valid config options for all layer sources:
 
 var layers = [
 
+    //----- RASTER
+    {
+        source: "dgct",
+        name: "dgct:dgct_este_mosaicospot",
+        group: "raster",
+        visibility:false,
+        tiled: true
+    }, {
+        source: "dgct",
+        name: "dgct:dgct_prov_historicoparajes",
+        group: "raster",
+        visibility:false,
+        tiled: true
+    },
+
     //----- POLIGONOS
     
     {
