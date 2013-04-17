@@ -1,7 +1,7 @@
 var sources = {
     
     idef: {
-        url: "http://idef.formosa.gob.ar/servicios/wms?",
+        url: "http://idef.formosa.gob.ar/servicios/idef/wms?",
         title: "IDE Formosa",
         version:"1.1.1"
     },

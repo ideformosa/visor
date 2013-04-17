@@ -197,12 +197,14 @@ var app = new gxp.Viewer({
         }, {
             ptype: "gxp_queryform",
             featureManager: "featuremanager",
-            outputConfig: {
-                title: "Query",
-                width: 320
-            },
             actionTarget: ["map.tbar"], //["featuregrid.bbar", "tree.contextMenu"],
-            appendActions: false
+            //appendActions: false,
+            autoExpand: "south",
+            //outputTarget: "south",
+            outputConfig: {
+                title: "Crear consulta",
+                width: 340
+            }
         }, {
             ptype: "gxp_print",
             printService: "http://idef.formosa.gob.ar/servicios/pdf/",
@@ -224,16 +226,21 @@ var app = new gxp.Viewer({
             // shared FeatureManager for feature editing, grid and querying
             ptype: "gxp_featuremanager",
             id: "featuremanager",
-            maxFeatures: 20
+            autoLoadFeatures: true,
+            maxFeatures: 30
         }, {
             ptype: "gxp_featuregrid",
             featureManager: "featuremanager",
+            showTotalResults: true,
+            //autoLoadFeature: false,
+            alwaysDisplayOnMap: false,
+            //displayMode: "selected",
             outputConfig: {
-                id: "featuregrid"
+                id: "featuregrid",
+                loadMask: true
             },
             outputTarget: "south"
         }
-        
         /*,{
             xtype:"gxp_querypanel",
             map:"mymap",

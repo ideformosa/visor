@@ -1,0 +1,229 @@
+#===========================================================================
+# allowed DPIs
+#===========================================================================
+dpis: [75, 150]
+#, 300]
+
+#===========================================================================
+# the allowed scales
+#===========================================================================
+scales:
+  - 25000
+  - 50000
+  - 100000
+  - 200000
+  - 500000
+  - 1000000
+  - 2000000
+  - 4000000
+
+#===========================================================================
+# the list of allowed hosts
+#===========================================================================
+hosts:
+  - !localMatch
+    dummy: true
+  # - !ipMatch
+  #   ip: www.camptocamp.org
+  # - !dnsMatch
+  #   host: labs.metacarta.com
+  #   port: 80
+  # - !dnsMatch
+  #   host: terraservice.net
+  #   port: 80
+  # - !dnsMatch
+  #   host: sigma.openplans.org
+  # - !dnsMatch
+  #   host: demo.mapfish.org
+
+
+outputFilename: Mapa_IDEF
+# -${yyMMdd-hhmmss}
+
+
+layouts:
+  #===========================================================================
+  Legal:
+  #===========================================================================
+    mainPage:
+      pageSize: A4
+      items:
+        - !map
+          spacingAfter: 30
+          width: 440
+          height: 483
+
+
+  #===========================================================================
+  A4:
+  #===========================================================================
+    metaData:
+#      title: '${mapTitle}'
+#      author: ''
+      subject: 'Mapa generado en la IDEF (idef.formosa.gob.ar)'
+      keywords: 'idef,mapa'
+      creator: 'Infraestructura de Datos Espaciales de Formosa'
+
+    # titlePage:
+    #   pageSize: A4
+    #   items:
+    #     - !text
+    #       spacingAfter: 150
+    #     - !text
+    #       font: Helvetica
+    #       fontSize: 40
+    #       spacingAfter: 100
+    #       align: center
+    #       text: '${layout}'
+    #     - !image
+    #       maxWidth: 160
+    #       maxHeight: 160
+    #       spacingAfter: 100
+    #       align: center
+    #       url: http://trac.mapfish.org/trac/mapfish/attachment/ticket/3/logo_v8_sphere.svg?format=raw
+
+      # footer: &commonFooter
+      #   height: 30
+      #   items:
+      #     - !text
+      #         align: right
+      #         text: '${now dd.MM.yyyy} - IDEF'
+
+          # - !columns
+          #   config:
+          #     cells:
+          #       - paddingBottom: 5   
+          #   items:
+          #     - !text
+          #       backgroundColor: #FF0000
+          #       align: left
+          #       text: a red box
+          #     - !text
+          #       align: right
+          #       text: 'Page ${pageNum}'
+          #     - !image
+          #       align: center
+          #       maxWidth: 100
+          #       maxHeight: 30
+          #       spacingAfter: 200
+          #       url: 'http://geoserver.org/download/attachments/10158143/pbGS-Bttn228x68.png'
+
+    #-------------------------------------------------------------------------
+    mainPage:
+      pageSize: A4
+      rotation: true
+
+      marginLeft: 60
+      marginRight: 40
+      marginTop: 30
+      marginBottom: 10
+
+      header:
+        height: 60
+        items:
+          - !image
+            #align: right
+            maxWidth: 130
+            maxHeight: 39
+            url: 'http://idef.formosa.gob.ar/idef.png'
+          # - !text
+          #   font: Helvetica
+          #   fontSize: 30
+          #   align: right
+          #   text: '${layout}'
+
+      items:
+        - !text
+          text: '${mapTitle}'
+          fontSize: 22
+          spacingAfter: 10
+        - !map
+          width: 460
+          height: 440
+          spacingAfter: 10
+
+        - !columns
+          # columns can have an absolute position. In that case, they need the 3 following fields:
+          # absoluteX: 410
+          # absoluteY: 310
+          # width: 100
+          spacingAfter: 20
+          config:
+            borderWidthBottom: 1
+            cells:
+              - paddingBottom: 10
+          items:
+            - !scalebar
+              type: bar
+              maxSize: 150
+              units: m
+              #barBgColor: white
+              fontSize: 8
+              align: left
+              # spacingAfter: 5
+            - !text
+              font: Helvetica
+              fontSize: 9
+              align: right
+              text: 'Escala 1:${scale}'
+              # spacingAfter: 5
+
+        - !legends
+          maxIconWidth: 10
+          maxIconHeight: 10
+          inline: false
+          spacingAfter: 20
+
+        - !text
+          text: '${comment}'
+          spacingAfter: 30
+
+        # - !attributes
+        #   source: data
+        #   spacingAfter: 30
+        #   columnDefs:
+        #     id:
+        #       columnWeight: 2
+        #       header: !text
+        #         text: ID
+        #         backgroundColor: #A0A0A0
+        #       cell: !text
+        #         text: '${id}'
+        #     name:
+        #       columnWeight: 5
+        #       header: !text
+        #         text: Name
+        #         backgroundColor: #A0A0A0
+        #       cell: !columns
+        #         config:
+        #           cells:
+        #             - backgroundColor: '${nameBackgroundColor}'
+        #               borderWidth: 1
+        #               borderColor: '${nameBorderColor}'
+        #         items:
+        #           - !text
+        #             text: '${name}'
+        #     icon:
+        #       columnWeight: 2
+        #       header: !text
+        #         text: Symbol
+        #         backgroundColor: #A0A0A0
+        #       cell: !image
+        #         align: center
+        #         maxWidth: 15
+        #         maxHeight: 15
+        #         url: 'http://www.mapfish.org/svn/mapfish/trunk/MapFish/client/mfbase/mapfish/img/${icon}.png'
+        #  - !text
+        #    font: Helvetica
+        #    fontSize: 9
+        #    align: right
+        #    text: '1:${scale} ${now MM.dd.yyyy}'
+
+      footer:
+        height: 30
+        items:
+          - !text
+              align: right
+              fontSize: 8
+              text: 'IDEF - ${now dd.MM.yyyy}'
+      # *commonFooter
