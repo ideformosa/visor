@@ -234,5 +234,10 @@ var layers = [
         fixed: true,
         type: "OpenLayers.Layer",
         args: ["En blanco", { visibility: false }]
-    }
+    }/*,{
+        source: "google",
+        name: "SATELLITE",
+        title: "Google Satellite",
+        group: "background"
+    }*/
 ];

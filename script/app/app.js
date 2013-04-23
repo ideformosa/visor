@@ -315,4 +315,5 @@ app.on("ready", function() {
 
     //this.portal.items.items[1].items.items[0].items.items[0].toolbars[0].doLayout();
     //Ext.getCmp('layer_tree').items.items[0].toolbars[0].add(slider);
+    app.mapPanel.map.addControl(getOverviewControl());
 });

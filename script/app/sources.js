@@ -44,7 +44,10 @@ var sources = {
     },
     ol: {
         ptype: "gxp_olsource"
-    }
+    }/*,
+    google: {
+        ptype: "gxp_googlesource"
+    }*/
 
     /*,
     csw: {
