@@ -272,18 +272,8 @@ var app = new gxp.Viewer({
         units: "degrees",
         center: [-60, -24.7],
         zoom: 7,
-        //stateId: "map",
-        //prettyStateKeys: true,
 
-        layers: layers//,  // layers.js
-
-        /*items: [{
-            xtype: "gx_zoomslider",
-            vertical: true,
-            height: 100
-        },{
-            xtype: "gxp_scaleoverlay"
-        }]*/
+        layers: layers  // layers.js
     }
 });
 
@@ -291,8 +281,10 @@ app.mapPanel.map.addControl(
     new OpenLayers.Control.MousePosition({
 
         formatOutput: function(lonLat) {
-           var markup = convertDMS(lonLat.lat);
-           markup += "," + convertDMS(lonLat.lon);
+           var markup = '<a target="_blank" ' +
+            'href="http://spatialreference.org/ref/epsg/4326/">' +
+            'EPSG:4326</a> | ';
+           markup += convertDMS(lonLat.lat) + "," + convertDMS(lonLat.lon);
            return markup;
         }
 

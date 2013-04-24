@@ -1,4 +1,14 @@
-var capaOverview = new OpenLayers.Layer.WMS(
+// create an overview map control with the default options
+/*var overview1 = new OpenLayers.Control.OverviewMap({
+    maximized: false,
+    maximizeTitle: 'Show the overview map',
+    minimizeTitle: 'Hide the overview map',
+    layers: [capaOverview] //[app.mapPanel.map.layers[30]]
+});*/
+
+getOverviewControl = function() {
+    
+    var capaOverview = new OpenLayers.Layer.WMS(
         "IGN",
         "http://wms.ign.gob.ar/geoserver/wms?",
         {
@@ -10,39 +20,23 @@ var capaOverview = new OpenLayers.Layer.WMS(
         }
     );
 
-// create an overview map control with the default options
-var overview1 = new OpenLayers.Control.OverviewMap({
-    maximized: false,
-    maximizeTitle: 'Show the overview map',
-    minimizeTitle: 'Hide the overview map',
-    layers: [capaOverview] //[app.mapPanel.map.layers[30]]
-});
-
-
-getOverviewControl = function() {
     var mapOptions = {
         maxExtent: new OpenLayers.Bounds(-65, -27.5, -55, -22),
-        //numZoomLevels: 1,
         projection: new OpenLayers.Projection("EPSG:4326"),
         units: "m"
     };
 
-    
-
     var controlOptions = {
-        //size: new OpenLayers.Size(196, 153),
         mapOptions: mapOptions,
-        //destroy: function() {},
         maximizeTitle: 'Mostrar mapa de referencia',
         minimizeTitle: 'Ocultar mapa de referencia',
         layers: [capaOverview]
     };
+
     var overview = new OpenLayers.Control.OverviewMap(controlOptions);
     
     return overview;
-    //app.mapPanel.map.addControl(overview);
 };
-
 
 /*
 * Decimal to DMS conversion
