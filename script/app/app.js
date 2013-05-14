@@ -1,8 +1,12 @@
-//Ext.onReady(function() {
+Ext.onReady(function() {
 
 GeoExt.Lang.set("es");
 
-var app = new gxp.Viewer({
+//new Ext.Button({id: "loginbutton"});
+
+var app = new gxp.Viewer({  //VisorIDEF({
+
+    //authStatus: 401, //{{status}},
 
     proxy: "/viewer/script/proxy.php?url=",
     
@@ -177,7 +181,7 @@ var app = new gxp.Viewer({
             //format: "grid",
             outputConfig: {
                 width: 550, //"auto",
-                height: 400,
+                height: 350,
                 draggable: true
             },
             showButtonText: true,
@@ -217,10 +221,23 @@ var app = new gxp.Viewer({
         }, /*{
             actions: ["loginbutton"],
             actionTarget: "map.tbar"
-        },*/
-        {
+        },*/ {
+            actions: ["-"],
+            actionTarget: "map.tbar"
+        }, {
             actions:["<a href=\"http://idef.formosa.gob.ar/Contacto.html\" target=\"_blank\">Sugerencias / Inconvenientes...</a>"]
         },
+
+        /*{
+            ptype: "cgxp_login",
+            actionTarget: 'map.tbar',
+            //toggleGroup: "maptools",
+            loginURL: "login",
+            logoutURL: "logout",
+            extraHtml: "Hey, want a <b>login</b>? You can <a href='some_url'>register here</a>.<br />How cool is that?"
+        },*/
+
+
         //---------  south grid --------------
         {
             // shared FeatureManager for feature editing, grid and querying
@@ -233,7 +250,7 @@ var app = new gxp.Viewer({
             featureManager: "featuremanager",
             showTotalResults: true,
             //autoLoadFeature: false,
-            alwaysDisplayOnMap: false,
+            alwaysDisplayOnMap: false, //ver******
             //displayMode: "selected",
             outputConfig: {
                 id: "featuregrid",
@@ -251,7 +268,10 @@ var app = new gxp.Viewer({
     mapItems: [{
             xtype: "gx_zoomslider",
             vertical: true,
-            height: 100
+            height: 100//,
+            /*plugins: new GeoExt.ZoomSliderTip({
+                template: this.zoomSliderText
+            })*/
         },{
             xtype: "gxp_scaleoverlay"
     }],
@@ -268,11 +288,13 @@ var app = new gxp.Viewer({
     map: {
         id: "mymap",
         //title: "Mapa",
-        projection: "EPSG:4326",
-        units: "degrees",
-        center: [-60, -24.7],
+        //projection: "EPSG:4326",
+        projection: "EPSG:3857",
+        //units: "degrees",
+        //center: [-60, -24.7],
+        center: [-6697106.670234, -2862855.637322],
         zoom: 7,
-
+        
         layers: layers  // layers.js
     }
 });
@@ -280,11 +302,22 @@ var app = new gxp.Viewer({
 app.mapPanel.map.addControl(
     new OpenLayers.Control.MousePosition({
 
-        formatOutput: function(lonLat) {
+        /*formatOutput: function(lonLat) {
            var markup = '<a target="_blank" ' +
             'href="http://spatialreference.org/ref/epsg/4326/">' +
             'EPSG:4326</a> | ';
            markup += convertDMS(lonLat.lat) + "," + convertDMS(lonLat.lon);
+           return markup;
+        }*/
+
+        formatOutput: function(lonLat) {
+            var markup = '<a target="_blank" ' +
+                'href="http://spatialreference.org/ref/sr-org/7483/">' +
+                'EPSG:3857</a> | ';
+
+            point = lonLat.transform(new OpenLayers.Projection("EPSG:3857"), new OpenLayers.Projection("EPSG:4326"));
+
+            markup += convertDMS(point.lat) + "," + convertDMS(point.lon);
            return markup;
         }
 
@@ -308,4 +341,33 @@ app.on("ready", function() {
     //this.portal.items.items[1].items.items[0].items.items[0].toolbars[0].doLayout();
     //Ext.getCmp('layer_tree').items.items[0].toolbars[0].add(slider);
     app.mapPanel.map.addControl(getOverviewControl());
+
+    /*
+    var datapoint = new OpenLayers.LonLat(-60, -24.7);
+    var proj_1 = new OpenLayers.Projection("EPSG:4326");
+    var proj_2 = new OpenLayers.Projection("EPSG:900913");
+    datapoint.transform(proj_1, proj_2);
+
+    app.mapPanel.map.setCenter(datapoint, 7);
+    */
+
+    /*gsat = new OpenLayers.Layer.Google("Google Imagery", {
+        type: google.maps.MapTypeId.SATELLITE,
+        numZoomLevels: 22,
+        transitionEffect: "resize"
+    });*/
+
+    /*var gsat = new OpenLayers.Layer.Google(
+                "Google Satellite",
+                {type: G_SATELLITE_MAP, numZoomLevels: 22}
+            );*/
+
+    /*var gsat = new OpenLayers.Layer.Google(
+                "Google Satellite",
+                {type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
+            );
+
+    app.mapPanel.map.addLayer(gsat); */
+});
+
 });

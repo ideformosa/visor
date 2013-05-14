@@ -19,11 +19,17 @@ getOverviewControl = function() {
           singleTile: true
         }
     );
+    /*gsat = new OpenLayers.Layer.Google("Google Imagery", {
+        type: google.maps.MapTypeId.SATELLITE,
+        numZoomLevels: 22,
+        transitionEffect: "resize"
+    });*/
 
     var mapOptions = {
-        maxExtent: new OpenLayers.Bounds(-65, -27.5, -55, -22),
-        projection: new OpenLayers.Projection("EPSG:4326"),
-        units: "m"
+        //maxExtent: new OpenLayers.Bounds(-65, -27.5, -55, -22),
+        projection: new OpenLayers.Projection("EPSG:3857")
+        //projection: new OpenLayers.Projection("EPSG:900913"),
+        //units: "degrees"
     };
 
     var controlOptions = {

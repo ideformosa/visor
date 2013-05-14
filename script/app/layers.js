@@ -18,13 +18,13 @@ var layers = [
         name: "dgct:dgct_este_mosaicospot",
         group: "raster",
         visibility:false,
-        tiled: true
+        tiled: true  //ok
     }, {
         source: "dgct",
         name: "dgct:dgct_prov_historicoparajes",
         group: "raster",
         visibility:false,
-        tiled: true
+        tiled: true  //ok
     },
 
     //----- POLIGONOS
@@ -39,34 +39,34 @@ var layers = [
         source: "dgct",
         name: "dgct:dgct_prov_parurbanas",
         group: "cartografia",
-        visibility:false//,
-        //tiled: false
+        visibility:false,
+        tiled: true //ok
     },  {
         source: "dgct",
         name: "dgct:dgct_prov_parrurales",
         group: "cartografia",
-        visibility:false//,
-        //tiled: false
+        visibility:false,
+        tiled: true //ok
     }, {
         source: "dec",
         name: "dec:dec_prov_censo2010",
         group: "estadistica",
         title:"Censo 2010 por Radio censal (sujeto a revisión)",
-        visibility:false//,
-        //fixed: true
+        visibility:false,
+        tiled: true //ok
     }, {
         source: "dec",
         name: "dec:dec_prov_censo2010xdpto",
         group: "estadistica",
         title:"Censo 2010 por Dpto. (sujeto a revisión)",
-        visibility:false//,
-        //fixed: true
+        visibility:false,
+        tiled: true //ok
     }, {
         source: "idef",
         name: "idef:reservas",
         group: "reservas",
         visibility:false,
-        tiled: false
+        tiled: true
     }, {
         source: "upca",
         name: "upca:upca_prov_cuencashid",
@@ -89,6 +89,13 @@ var layers = [
         source: "ign",
         name: "sig250:age",
         group: "ign",
+        visibility:false,
+        tiled: false
+    }, {
+        source: "educ",
+        name: "mce:mce_prov_delzonales",
+        group: "educacion",
+        title:"Delegaciones Zonales",
         visibility:false,
         tiled: false
     },
@@ -163,26 +170,26 @@ var layers = [
         name: "mce:mce_prov_escuelas",
         group: "educacion",
         title:"Unidades Educativas (sujeto a revisión)",
-        visibility:false//,
-        //fixed: true
+        visibility:false,
+        tiled: true //ok
     }, {
         source: "upca",
         name: "upca:upca_prov_redhidrom",
         group: "hidrografia",
-        visibility:false//,
-        //tiled: false
+        visibility:false,
+        tiled: true //ok
     }, {
         source: "upca",
         name: "upca:upca_prov_redpluviom",
         group: "hidrografia",
-        visibility:false//,
-        //tiled: false
+        visibility:false,
+        tiled: true //ok
     },
     {
         source: "ign",
         name: "sig250:cep",
         group: "ign",
-        tiled: false
+        tiled: true //ok
     },
 
 
@@ -205,7 +212,7 @@ var layers = [
         name: "dgct:dgct_este_nombrescalles",
         group: "cartografia",
         visibility:false,
-        tiled: false
+        tiled: false //ok
     }, {
         source: "ign",
         name: "sig250:jad",
@@ -222,6 +229,21 @@ var layers = [
 
     //------- Capas base
     {
+        source: "google",
+        name: "ROADMAP",
+        title: "Google Streets",
+        group: "background"
+    }, {
+        source: "google",
+        name: "HYBRID",
+        title: "Google Hybrid",
+        group: "background"
+    }, {
+        source: "google",
+        name: "SATELLITE",
+        title: "Google Satellite",
+        group: "background"
+    }, {
         source: "ign",
         name: "sig250:lim",
         group: "background",
@@ -234,10 +256,5 @@ var layers = [
         fixed: true,
         type: "OpenLayers.Layer",
         args: ["En blanco", { visibility: false }]
-    }/*,{
-        source: "google",
-        name: "SATELLITE",
-        title: "Google Satellite",
-        group: "background"
-    }*/
+    }
 ];

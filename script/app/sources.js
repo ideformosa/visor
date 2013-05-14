@@ -32,10 +32,10 @@ var sources = {
     },
 
     /*idefcacheado: {
-       url: "http://idef.formosa.gob.ar/geoserver/gwc/service/wms?SERVICE=WMS&VERSION=1.1.1&REQUEST=getcapabilities&TILED=true?",
+       url: "http://idef.formosa.gob.ar/servicios/gwc/service/wms?", //SERVICE=WMS&VERSION=1.1.1&REQUEST=getcapabilities&TILED=true?",
        title: "IDE Formosa Cacheado",
        version:"1.1.1"
-   },*/
+    },*/
     
     ign: {
         url:"http://wms.ign.gob.ar/geoserver/wms?",
@@ -44,10 +44,10 @@ var sources = {
     },
     ol: {
         ptype: "gxp_olsource"
-    }/*,
+    },
     google: {
         ptype: "gxp_googlesource"
-    }*/
+    }
 
     /*,
     csw: {
