@@ -242,7 +242,9 @@ var layers = [
         source: "google",
         name: "SATELLITE",
         title: "Google Satellite",
-        group: "background"
+        group: "background",
+        MAX_ZOOM_LEVEL: 21
+        //animationEnabled: true
     }, {
         source: "ign",
         name: "sig250:lim",

@@ -1,18 +1,13 @@
-// create an overview map control with the default options
-/*var overview1 = new OpenLayers.Control.OverviewMap({
-    maximized: false,
-    maximizeTitle: 'Show the overview map',
-    minimizeTitle: 'Hide the overview map',
-    layers: [capaOverview] //[app.mapPanel.map.layers[30]]
-});*/
-
+//
+// Devuelve el control OverviewMap
+//
 getOverviewControl = function() {
     
     var capaOverview = new OpenLayers.Layer.WMS(
         "IGN",
         "http://wms.ign.gob.ar/geoserver/wms?",
         {
-          layers: "sig250:lim,sig250:jad"
+          layers: "SIGN" //"sig250:lim,sig250:jad"
         },{
           buffer: 0,
           ratio: 1,

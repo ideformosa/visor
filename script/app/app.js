@@ -1,10 +1,10 @@
-Ext.onReady(function() {
+//Ext.onReady(function() {
 
 GeoExt.Lang.set("es");
 
 //new Ext.Button({id: "loginbutton"});
 
-var app = new gxp.Viewer({  //VisorIDEF({
+var app = new gxp.Viewer({  //IDEF.Visor({
 
     //authStatus: 401, //{{status}},
 
@@ -166,7 +166,7 @@ var app = new gxp.Viewer({  //VisorIDEF({
         }, {
             ptype: "gxp_zoomtoextent",
             actionTarget: "map.tbar",
-            extent: new OpenLayers.Bounds(-63, -27.2, -57, -22.2),
+            extent: new OpenLayers.Bounds(-7335508.0601489,-3217522.8111938,-6058703.9398511,-2508187.1888062),
             tooltip: "Ver extensión inicial"
         },{
             ptype: "gxp_zoom",
@@ -276,10 +276,10 @@ var app = new gxp.Viewer({  //VisorIDEF({
             xtype: "gxp_scaleoverlay"
     }],
 
-    mapPlugins: {
+    /*mapPlugins: {
         ptype:"gxp_loadingindicator",
         loadingMapMessage:"Cargando mapa..."
-    },
+    },*/
     
 	defaultSourceType: "gxp_wmssource",
 
@@ -292,8 +292,9 @@ var app = new gxp.Viewer({  //VisorIDEF({
         projection: "EPSG:3857",
         //units: "degrees",
         //center: [-60, -24.7],
-        center: [-6697106.670234, -2862855.637322],
+        center: [-6697106, -2862855],
         zoom: 7,
+        numZoomLevels: 22,
         
         layers: layers  // layers.js
     }
@@ -301,14 +302,6 @@ var app = new gxp.Viewer({  //VisorIDEF({
 
 app.mapPanel.map.addControl(
     new OpenLayers.Control.MousePosition({
-
-        /*formatOutput: function(lonLat) {
-           var markup = '<a target="_blank" ' +
-            'href="http://spatialreference.org/ref/epsg/4326/">' +
-            'EPSG:4326</a> | ';
-           markup += convertDMS(lonLat.lat) + "," + convertDMS(lonLat.lon);
-           return markup;
-        }*/
 
         formatOutput: function(lonLat) {
             var markup = '<a target="_blank" ' +
@@ -342,6 +335,8 @@ app.on("ready", function() {
     //Ext.getCmp('layer_tree').items.items[0].toolbars[0].add(slider);
     app.mapPanel.map.addControl(getOverviewControl());
 
+    //alert(app.mapPanel.map.getExtent());
+
     /*
     var datapoint = new OpenLayers.LonLat(-60, -24.7);
     var proj_1 = new OpenLayers.Projection("EPSG:4326");
@@ -370,4 +365,4 @@ app.on("ready", function() {
     app.mapPanel.map.addLayer(gsat); */
 });
 
-});
+//});
