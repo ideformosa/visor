@@ -25,10 +25,16 @@ var layers = [
         group: "raster",
         visibility:false,
         tiled: true  //ok
+    }, {
+        source: "dpv",
+        name: "dpv:dpv_prov_satelital",
+        group: "raster",
+        visibility:false,
+        tiled: true  //ok
     },
 
     //----- POLIGONOS
-    
+
     {
         source: "ign",
         name: "sig250:continente",
@@ -220,12 +226,6 @@ var layers = [
         tiled: false
     },
 
-
-    //------ Raster
-
-    //
-    //
-    //
 
     //------- Capas base
     {
