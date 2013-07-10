@@ -34,10 +34,7 @@ var tree_groups = {
     },
     "cartografia": {
         title: "Cartografía Catastral",
-        expanded: false//,
-        /*listeners: {
-            'append': setearSlider //{fn: setearSlider, single: true}
-        }*/
+        expanded: false
     },
     "educacion": {
         title: "Educación",
@@ -56,8 +53,7 @@ var tree_groups = {
         expanded: false
     },
     "viasdecom": {
-        title: "Vías de Comunicación"//,
-        //expanded: false
+        title: "Vías de Comunicación"
     },
     "raster": {
         title: "Capas Raster",
@@ -67,7 +63,6 @@ var tree_groups = {
         title: "Capas IGN (WMS)",
         expanded: false
     },
-
     "background": {
         title: "Capas base disponibles",
         exclusive: true

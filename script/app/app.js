@@ -1,12 +1,8 @@
-//Ext.onReady(function() {
+Ext.onReady(function() {
 
 GeoExt.Lang.set("es");
 
-//new Ext.Button({id: "loginbutton"});
-
-var app = new gxp.Viewer({  //IDEF.Visor({
-
-    //authStatus: 401, //{{status}},
+var app = new gxp.Viewer({
 
     proxy: "/viewer/script/proxy.php?url=",
     
@@ -19,14 +15,7 @@ var app = new gxp.Viewer({  //IDEF.Visor({
             layout: "fit",
             region: "center",
             items: ["mymap"]
-        },
-        /*{
-            id: "northtbar",
-            xtype: "toolbar",
-            region: "north",
-            items: []
-        },*/
-        {
+        }, {
             id: "westcontainer",
             region: "west",
             xtype: "panel",
@@ -45,16 +34,11 @@ var app = new gxp.Viewer({  //IDEF.Visor({
             items: [{
                     title: "Capas",
                     id: "layer_tree",
-                    //border: false,
                     flex: 1
                 }, {
                     title: "Leyenda",
                     id: "legend"
-                }/*, {
-                    title: "Fuentes",
-                    id: "fuentes"
-                }*/]
-            //}]
+                }]
         }, {
                 // container for the FeatureGrid
                 region: "south",
@@ -70,25 +54,7 @@ var app = new gxp.Viewer({  //IDEF.Visor({
                 //header: false,
                 title:"Atributos",
                 layout: "fit"
-        } /*,{context
-            id: "eastcontainer",
-            xtype: "container",
-            //xtype: "gxp_querypanel",
-            layout: "vbox",
-            region: "east",
-            width: 200,
-            collapsible: true,
-            defaults: {
-                width: "100%",
-                layout: "fit"
-            },
-            //map: "map"
-            items: [{
-                id:"query",
-                title:"query"
-            }]
-        }*/
-        ]
+        }]
 	},
 
 	tools: [
@@ -102,11 +68,8 @@ var app = new gxp.Viewer({  //IDEF.Visor({
                 autoScroll: true,
                 animate: true,
                 tbar: [],
-                //bbar: ["Opacidad: ", i]//,
                 listeners: {
-                 //   "insert": setearSlider,
                    "append": setearSlider
-                   //"click": setearSlider
                 }
             },
             outputTarget: "layer_tree"
@@ -134,24 +97,7 @@ var app = new gxp.Viewer({  //IDEF.Visor({
             ptype: "gxp_layerproperties",
             actionTarget: ["tree.tbar", "tree.contextMenu"]
         },
-        /*{
-            xtype: "gx_opacityslider",
-            outputConfig: {
-                id: "op_slider",
-                width: 120,
-                decimalPrecision: 1,
-                increment: 10,
-                value: 50,
-                //disabled: true,
-                layer: null //,
-                listeners: {
-                    change: function (a, b) {
-                        this.layer.setOpacity(b / 100);
-                    }
-                }
-            },
-            outputTarget: "tree.tbar"
-        },*/
+        
         //------- map.tbar ---------
         {
             ptype: "gxp_navigationhistory",
@@ -180,13 +126,12 @@ var app = new gxp.Viewer({  //IDEF.Visor({
             ptype: "gxp_wmsgetfeatureinfo",
             //format: "grid",
             outputConfig: {
-                width: 550, //"auto",
+                width: 550,
                 height: 350,
                 draggable: true
             },
             showButtonText: true,
             buttonText:"Identificar",
-            //text: "Identificar",
             actionTarget: "map.tbar",
             toggleGroup: "tools"
         },{
@@ -201,10 +146,8 @@ var app = new gxp.Viewer({  //IDEF.Visor({
         }, {
             ptype: "gxp_queryform",
             featureManager: "featuremanager",
-            actionTarget: ["map.tbar"], //["featuregrid.bbar", "tree.contextMenu"],
-            //appendActions: false,
+            actionTarget: ["map.tbar"],
             autoExpand: "south",
-            //outputTarget: "south",
             outputConfig: {
                 title: "Crear consulta",
                 width: 340
@@ -218,26 +161,12 @@ var app = new gxp.Viewer({  //IDEF.Visor({
         }, {
             actions: ["->"],
             actionTarget: "map.tbar"
-        }, /*{
-            actions: ["loginbutton"],
-            actionTarget: "map.tbar"
-        },*/ {
+        }, {
             actions: ["-"],
             actionTarget: "map.tbar"
         }, {
             actions:["<a href=\"http://idef.formosa.gob.ar/Contacto.html\" target=\"_blank\">Sugerencias / Inconvenientes...</a>"]
         },
-
-        /*{
-            ptype: "cgxp_login",
-            actionTarget: 'map.tbar',
-            //toggleGroup: "maptools",
-            loginURL: "login",
-            logoutURL: "logout",
-            extraHtml: "Hey, want a <b>login</b>? You can <a href='some_url'>register here</a>.<br />How cool is that?"
-        },*/
-
-
         //---------  south grid --------------
         {
             // shared FeatureManager for feature editing, grid and querying
@@ -250,7 +179,7 @@ var app = new gxp.Viewer({  //IDEF.Visor({
             featureManager: "featuremanager",
             showTotalResults: true,
             //autoLoadFeature: false,
-            alwaysDisplayOnMap: false, //ver******
+            alwaysDisplayOnMap: false,
             //displayMode: "selected",
             outputConfig: {
                 id: "featuregrid",
@@ -258,28 +187,15 @@ var app = new gxp.Viewer({  //IDEF.Visor({
             },
             outputTarget: "south"
         }
-        /*,{
-            xtype:"gxp_querypanel",
-            map:"mymap",
-            outputTarget: "query"
-        }*/
 	],
 
     mapItems: [{
             xtype: "gx_zoomslider",
             vertical: true,
-            height: 100//,
-            /*plugins: new GeoExt.ZoomSliderTip({
-                template: this.zoomSliderText
-            })*/
+            height: 100
         },{
             xtype: "gxp_scaleoverlay"
     }],
-
-    /*mapPlugins: {
-        ptype:"gxp_loadingindicator",
-        loadingMapMessage:"Cargando mapa..."
-    },*/
     
 	defaultSourceType: "gxp_wmssource",
 
@@ -313,13 +229,6 @@ app.mapPanel.map.addControl(
             markup += convertDMS(point.lat) + "," + convertDMS(point.lon);
            return markup;
         }
-
-        /*prefix: '<a target="_blank" ' +
-            'href="http://spatialreference.org/ref/epsg/4326/">' +
-            'EPSG:4326</a> coordinates: ',
-        separator: ' | ',
-        numDigits: 3 ,
-        emptyString: 'Mouse is not over map.'*/
     })
 );
 
@@ -331,38 +240,7 @@ app.on("ready", function() {
     treeTbar.add(slider);
     treeTbar.doLayout();
 
-    //this.portal.items.items[1].items.items[0].items.items[0].toolbars[0].doLayout();
-    //Ext.getCmp('layer_tree').items.items[0].toolbars[0].add(slider);
     app.mapPanel.map.addControl(getOverviewControl());
-
-    //alert(app.mapPanel.map.getExtent());
-
-    /*
-    var datapoint = new OpenLayers.LonLat(-60, -24.7);
-    var proj_1 = new OpenLayers.Projection("EPSG:4326");
-    var proj_2 = new OpenLayers.Projection("EPSG:900913");
-    datapoint.transform(proj_1, proj_2);
-
-    app.mapPanel.map.setCenter(datapoint, 7);
-    */
-
-    /*gsat = new OpenLayers.Layer.Google("Google Imagery", {
-        type: google.maps.MapTypeId.SATELLITE,
-        numZoomLevels: 22,
-        transitionEffect: "resize"
-    });*/
-
-    /*var gsat = new OpenLayers.Layer.Google(
-                "Google Satellite",
-                {type: G_SATELLITE_MAP, numZoomLevels: 22}
-            );*/
-
-    /*var gsat = new OpenLayers.Layer.Google(
-                "Google Satellite",
-                {type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
-            );
-
-    app.mapPanel.map.addLayer(gsat); */
 });
 
-//});
+});

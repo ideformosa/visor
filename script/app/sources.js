@@ -32,7 +32,7 @@ var sources = {
     },
 
     /*idefcacheado: {
-       url: "http://idef.formosa.gob.ar/servicios/gwc/service/wms?", //SERVICE=WMS&VERSION=1.1.1&REQUEST=getcapabilities&TILED=true?",
+       url: "http://idef.formosa.gob.ar/servicios/gwc/service/wms?",
        title: "IDE Formosa Cacheado",
        version:"1.1.1"
     },*/

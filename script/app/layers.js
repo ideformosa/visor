@@ -12,6 +12,42 @@ Valid config options for all layer sources:
 
 var layers = [
 
+    //------- Capas base
+    {
+        source: "ign",
+        name: "IGN:limite_politico_administrativo_lim",
+        title: "IGN: Límite Político Administrativo",
+        group: "background",
+        fixed: true,
+        selected: true,
+        transparent:false
+    }, {
+        source: "google",
+        name: "ROADMAP",
+        title: "Google Streets",
+        group: "background",
+        visibility: false
+    }, {
+        source: "google",
+        name: "HYBRID",
+        title: "Google Hybrid",
+        group: "background",
+        visibility: false
+    }, {
+        source: "google",
+        name: "SATELLITE",
+        title: "Google Satellite",
+        group: "background",
+        MAX_ZOOM_LEVEL: 21,
+        visibility: false
+    }, {
+        source: "ol",
+        group: "background",
+        fixed: true,
+        type: "OpenLayers.Layer",
+        args: ["En blanco", { visibility: false }]
+    },
+
     //----- RASTER
     {
         source: "dgct",
@@ -34,7 +70,6 @@ var layers = [
     },
 
     //----- POLIGONOS
-
     {
         source: "ign",
         name: "sig250:continente",
@@ -106,9 +141,7 @@ var layers = [
         tiled: false
     },
 
-
     //-----  LINEAS
-
     {
         source: "dgct",
         name: "dgct:cat_prov_manzanas",
@@ -168,9 +201,7 @@ var layers = [
         tiled: false
     },
 
-
     //----- PUNTOS
-
     {
         source: "educ",
         name: "mce:mce_prov_escuelas",
@@ -190,17 +221,14 @@ var layers = [
         group: "hidrografia",
         visibility:false,
         tiled: true //ok
-    },
-    {
+    }, {
         source: "ign",
-        name: "sig250:cep",
+        name: "IGN:localidad",
         group: "ign",
         tiled: true //ok
     },
 
-
     //----- LABELS
-
     {
         source: "dgct",
         name: "dgct:dgct_oeste_nombrescalles",
@@ -224,39 +252,5 @@ var layers = [
         name: "sig250:jad",
         group: "ign",
         tiled: false
-    },
-
-
-    //------- Capas base
-    {
-        source: "google",
-        name: "ROADMAP",
-        title: "Google Streets",
-        group: "background"
-    }, {
-        source: "google",
-        name: "HYBRID",
-        title: "Google Hybrid",
-        group: "background"
-    }, {
-        source: "google",
-        name: "SATELLITE",
-        title: "Google Satellite",
-        group: "background",
-        MAX_ZOOM_LEVEL: 21
-        //animationEnabled: true
-    }, {
-        source: "ign",
-        name: "sig250:lim",
-        group: "background",
-        fixed: true,
-        selected: true,
-        transparent:false
-    }, {
-        source: "ol",
-        group: "background",
-        fixed: true,
-        type: "OpenLayers.Layer",
-        args: ["En blanco", { visibility: false }]
     }
 ];
