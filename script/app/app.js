@@ -5,7 +5,7 @@ GeoExt.Lang.set("es");
 var app = new gxp.Viewer({
 
     proxy: "/viewer/script/proxy.php?url=",
-    
+
 	portalConfig: {
 		layout: "border",
 
@@ -96,8 +96,18 @@ var app = new gxp.Viewer({
         }, {
             ptype: "gxp_layerproperties",
             actionTarget: ["tree.tbar", "tree.contextMenu"]
+        }, {
+            ptype: "gxp_queryform",
+            featureManager: "featuremanager",
+            autoExpand: "south",
+            outputConfig: {
+                title: "Crear consulta",
+                width: 340
+            },
+            actionTarget: "tree.tbar",
+            queryActionText: ""
         },
-        
+
         //------- map.tbar ---------
         {
             ptype: "gxp_navigationhistory",
@@ -131,7 +141,7 @@ var app = new gxp.Viewer({
                 draggable: true
             },
             showButtonText: true,
-            buttonText:"Identificar",
+            buttonText:"Info puntual",
             actionTarget: "map.tbar",
             toggleGroup: "tools"
         },{
@@ -143,15 +153,6 @@ var app = new gxp.Viewer({
             showButtonText: true,
             actionTarget: "map.tbar",
             toggleGroup: "tools"
-        }, {
-            ptype: "gxp_queryform",
-            featureManager: "featuremanager",
-            actionTarget: ["map.tbar"],
-            autoExpand: "south",
-            outputConfig: {
-                title: "Crear consulta",
-                width: 340
-            }
         }, {
             ptype: "gxp_print",
             printService: "http://idef.formosa.gob.ar/servicios/pdf/",
@@ -196,7 +197,7 @@ var app = new gxp.Viewer({
         },{
             xtype: "gxp_scaleoverlay"
     }],
-    
+
 	defaultSourceType: "gxp_wmssource",
 
     sources: sources,
@@ -211,7 +212,7 @@ var app = new gxp.Viewer({
         center: [-6697106, -2862855],
         zoom: 7,
         numZoomLevels: 22,
-        
+
         layers: layers  // layers.js
     }
 });
