@@ -1,5 +1,5 @@
 var sources = {
-    
+
     idef: {
         url: "http://idef.formosa.gob.ar/servicios/idef/wms?",
         title: "IDE Formosa",
@@ -16,12 +16,12 @@ var sources = {
         version:"1.1.1"
     },
     dpv: {
-        url:"http://idef.formosa.gob.ar/servicios/dpv/wms?",
+        url:"http://idef.formosa.gob.ar/dpv/servicios/dpv/wms?",
         title:"Dirección Provincial de Vialidad",
         version:"1.1.1"
     },
     educ: {
-        url:"http://idef.formosa.gob.ar/servicios/mce/wms?",
+        url:"http://idef.formosa.gob.ar/mce/servicios/MCE/wms?",
         title:"Ministerio de Cultura y Educación",
         version:"1.1.1"
     },
@@ -36,7 +36,7 @@ var sources = {
        title: "IDE Formosa Cacheado",
        version:"1.1.1"
     },*/
-    
+
     ign: {
         url:"http://wms.ign.gob.ar/geoserver/wms?",
         title:"Instituto Geográfico Nacional",

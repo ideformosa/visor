@@ -134,7 +134,7 @@ var layers = [
         tiled: false
     }, {
         source: "educ",
-        name: "mce:mce_prov_delzonales",
+        name: "MCE:mce_prov_delzonales",
         group: "educacion",
         title:"Delegaciones Zonales",
         visibility:false,
@@ -204,7 +204,7 @@ var layers = [
     //----- PUNTOS
     {
         source: "educ",
-        name: "mce:mce_prov_escuelas",
+        name: "MCE:mce_prov_escuelas",
         group: "educacion",
         title:"Unidades Educativas (sujeto a revisión)",
         visibility:false,
