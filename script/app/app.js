@@ -1,4 +1,4 @@
-Ext.onReady(function() {
+//Ext.onReady(function() {
 
 GeoExt.Lang.set("es");
 
@@ -20,7 +20,7 @@ var app = new gxp.Viewer({
             region: "west",
             xtype: "panel",
             layout: "accordion",
-            width: 250,
+            width: 275,
             //border: false,
             split: true,
             collapsible: true,
@@ -85,7 +85,7 @@ var app = new gxp.Viewer({
         //------- tree.tbar --------
         {
             ptype: "gxp_addlayers",
-            addActionText: "Más...",
+            //addActionText: "Más...",
             actionTarget: "tree.tbar"
         }, {
             ptype: "gxp_removelayer",
@@ -204,7 +204,6 @@ var app = new gxp.Viewer({
 
     map: {
         id: "mymap",
-        //title: "Mapa",
         //projection: "EPSG:4326",
         projection: "EPSG:3857",
         //units: "degrees",
@@ -221,7 +220,7 @@ app.mapPanel.map.addControl(
     new OpenLayers.Control.MousePosition({
 
         formatOutput: function(lonLat) {
-            var markup = '<a target="_blank" ' +
+            markup = '<a target="_blank" ' +
                 'href="http://spatialreference.org/ref/sr-org/7483/">' +
                 'EPSG:3857</a> | ';
 
@@ -235,13 +234,37 @@ app.mapPanel.map.addControl(
 
 app.on("ready", function() {
 
-    treeTbar = Ext.getCmp('layer_tree').items.items[0].toolbars[0];
+    btnMetadatos = new Ext.Button({
+        text: 'Metadatos',
+        tooltip: 'Acceso a metadatos de la capa',
+        icon: './theme/info-new-window.png',
+        disabled: true,
+        handler: function(baseItem, e){
+            if (Ext.getCmp('ventanaMetadatos')) {
+                Ext.getCmp('ventanaMetadatos').destroy();
+            }
+            new Ext.Window({
+                title: 'Metadatos de la capa',
+                id: 'ventanaMetadatos',
+                maximizable: true,
+                width: 800,
+                height: 550,
+                stateful : false,
+                html: '<iframe src ="' + app.selectedLayer.data.metadataURLs[0].href + 
+                    '" width="100%" height="100%"></iframe>'
+            }).show();
+        }
+    });
 
-    treeTbar.add(new Ext.Toolbar.Spacer({ width: 8 }));
+    treeTbar = Ext.getCmp('layer_tree').items.items[0].toolbars[0];
+    treeTbar.add(new Ext.Toolbar.Spacer({ width: 3 }));
     treeTbar.add(slider);
+    treeTbar.add(new Ext.Toolbar.Separator({ width: 3 }));
+    treeTbar.add(btnMetadatos);
+    
     treeTbar.doLayout();
 
     app.mapPanel.map.addControl(getOverviewControl());
 });
 
-});
+//});
