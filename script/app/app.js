@@ -68,9 +68,9 @@ var app = new gxp.Viewer({
                 autoScroll: true,
                 animate: true,
                 tbar: [],
-                listeners: {
-                   "append": setearSlider
-                }
+                /*listeners: {
+                   "click": clickHandler
+                }*/
             },
             outputTarget: "layer_tree"
         },
@@ -232,36 +232,56 @@ app.mapPanel.map.addControl(
     })
 );
 
+slider = new GeoExt.LayerOpacitySlider({
+    width: 70,
+    layer: null,
+    aggressive: true,
+    inverse: true,
+    plugins: new GeoExt.LayerOpacitySliderTip({template: '<div>Transparencia: {opacity}%</div>'})
+});
+    
+btnMetadatos = new Ext.Button({
+    text: 'Metadatos',
+    tooltip: 'Acceso a metadatos de la capa',
+    icon: './theme/info-new-window.png',
+    disabled: true,
+    handler: function(baseItem, e){
+        if (Ext.getCmp('ventanaMetadatos')) {
+            Ext.getCmp('ventanaMetadatos').destroy();
+        }
+        new Ext.Window({
+            title: 'Metadatos de la capa',
+            id: 'ventanaMetadatos',
+            maximizable: true,
+            width: 800,
+            height: 550,
+            stateful : false,
+            html: '<iframe src ="' + app.selectedLayer.data.metadataURLs[0].href + 
+                '" width="100%" height="100%"></iframe>'
+        }).show();
+    }
+});
+
 app.on("ready", function() {
 
-    btnMetadatos = new Ext.Button({
-        text: 'Metadatos',
-        tooltip: 'Acceso a metadatos de la capa',
-        icon: './theme/info-new-window.png',
-        disabled: true,
-        handler: function(baseItem, e){
-            if (Ext.getCmp('ventanaMetadatos')) {
-                Ext.getCmp('ventanaMetadatos').destroy();
-            }
-            new Ext.Window({
-                title: 'Metadatos de la capa',
-                id: 'ventanaMetadatos',
-                maximizable: true,
-                width: 800,
-                height: 550,
-                stateful : false,
-                html: '<iframe src ="' + app.selectedLayer.data.metadataURLs[0].href + 
-                    '" width="100%" height="100%"></iframe>'
-            }).show();
-        }
+    tree = Ext.getCmp('tree');
+    tree.on("click", function (node, e) {
+        if (node.isLeaf()) {
+            slider.setLayer(node.layer);
+
+            if (app.selectedLayer.data.metadataURLs[0]){
+                btnMetadatos.enable();
+            } else {
+                btnMetadatos.disable();
+            };
+        };
     });
 
     treeTbar = Ext.getCmp('layer_tree').items.items[0].toolbars[0];
     treeTbar.add(new Ext.Toolbar.Spacer({ width: 3 }));
     treeTbar.add(slider);
     treeTbar.add(new Ext.Toolbar.Separator({ width: 3 }));
-    treeTbar.add(btnMetadatos);
-    
+    treeTbar.add(btnMetadatos);  
     treeTbar.doLayout();
 
     app.mapPanel.map.addControl(getOverviewControl());
