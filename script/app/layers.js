@@ -18,9 +18,7 @@ var layers = [
         name: "IGN:limite_politico_administrativo_lim",
         title: "IGN: Límite Político Administrativo",
         group: "background",
-        fixed: true,
-        selected: true,
-        transparent:false
+        fixed: true
     }, {
         source: "google",
         name: "ROADMAP",
@@ -75,7 +73,7 @@ var layers = [
         name: "sig250:continente",
         group: "ign",
         visibility:false,
-        tiled: false
+        tiled: false //ok
     }, {
         source: "dgct",
         name: "dgct:dgct_prov_parurbanas",
@@ -131,9 +129,9 @@ var layers = [
         name: "sig250:age",
         group: "ign",
         visibility:false,
-        tiled: false
+        tiled: true //ok
     }, {
-        source: "educ",
+        source: "mce",
         name: "MCE:mce_prov_delzonales",
         group: "educacion",
         title:"Delegaciones Zonales",
@@ -152,35 +150,35 @@ var layers = [
         source: "dpv",
         name: "dpv:dpv_prov_redterciaria",
         group: "viasdecom",
-        tiled: false
+        tiled: true
     }, {
         source: "dpv",
         name: "dpv:dpv_prov_rutasprov",
         group: "viasdecom",
-        tiled: false
+        tiled: true
     }, {
         source: "dpv",
         name: "dpv:dpv_prov_rutasnac",
         group: "viasdecom",
-        tiled: false
+        tiled: true
     }, {
         source: "dpv",
         name: "dpv:dpv_prov_distritosdpv",
         group: "viasdecom",
         visibility:false,
-        tiled: false
+        tiled: true
     },  {
         source: "ign",
         name: "sig250:cam",
         group: "ign",
         visibility:false,
-        tiled: false
+        tiled: false //ok
     }, {
         source: "ign",
         name: "sig250:ffc",
         group: "ign",
         visibility:false,
-        tiled: false
+        tiled: false //ok
     }, {
         source: "upca",
         name: "upca:upca_prov_canalcorred",
@@ -203,7 +201,7 @@ var layers = [
 
     //----- PUNTOS
     {
-        source: "educ",
+        source: "mce",
         name: "MCE:mce_prov_escuelas",
         group: "educacion",
         title:"Unidades Educativas (sujeto a revisión)",
@@ -251,6 +249,6 @@ var layers = [
         source: "ign",
         name: "sig250:jad",
         group: "ign",
-        tiled: false
+        tiled: false //ok
     }
 ];

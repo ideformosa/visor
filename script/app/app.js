@@ -166,14 +166,14 @@ var app = new gxp.Viewer({
             actions: ["-"],
             actionTarget: "map.tbar"
         }, {
-            actions:["<a href=\"http://idef.formosa.gob.ar/Contacto.html\" target=\"_blank\">Sugerencias / Inconvenientes...</a>"]
+            actions:["<a href=\"http://idef.formosa.gob.ar/Contacto.html\" target=\"_blank\">Contáctenos...</a>"]
         },
         //---------  south grid --------------
         {
             // shared FeatureManager for feature editing, grid and querying
             ptype: "gxp_featuremanager",
             id: "featuremanager",
-            autoLoadFeatures: true,
+            //autoLoadFeatures: true,
             maxFeatures: 30
         }, {
             ptype: "gxp_featuregrid",

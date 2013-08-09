@@ -20,7 +20,7 @@ var sources = {
         title:"Dirección Provincial de Vialidad",
         version:"1.1.1"
     },
-    educ: {
+    mce: {
         url:"http://idef.formosa.gob.ar/mce/servicios/MCE/wms?",
         title:"Ministerio de Cultura y Educación",
         version:"1.1.1"
@@ -30,12 +30,6 @@ var sources = {
         title:"Unidad Provincial Coordinadora del Agua",
         version:"1.1.1"
     },
-
-    /*idefcacheado: {
-       url: "http://idef.formosa.gob.ar/servicios/gwc/service/wms?",
-       title: "IDE Formosa Cacheado",
-       version:"1.1.1"
-    },*/
 
     ign: {
         url:"http://wms.ign.gob.ar/geoserver/wms?",
