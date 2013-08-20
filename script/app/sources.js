@@ -16,7 +16,7 @@ var sources = {
         version:"1.1.1"
     },
     dpv: {
-        url:"http://idef.formosa.gob.ar/dpv/servicios/dpv/wms?",
+        url:"http://idef.formosa.gob.ar/dpv/servicios/gwc/service/wms?",
         title:"Dirección Provincial de Vialidad",
         version:"1.1.1"
     },

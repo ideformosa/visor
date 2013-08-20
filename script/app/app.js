@@ -4,7 +4,7 @@ GeoExt.Lang.set("es");
 
 var app = new gxp.Viewer({
 
-    proxy: "/viewer/script/proxy.php?url=",
+    proxy: "/visor/script/proxy.php?url=",
 
 	portalConfig: {
 		layout: "border",
