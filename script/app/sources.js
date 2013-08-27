@@ -16,7 +16,7 @@ var sources = {
         version:"1.1.1"
     },
     dpv: {
-        url:"http://idef.formosa.gob.ar/dpv/servicios/gwc/service/wms?",
+        url:"http://idef.formosa.gob.ar/dpv/servicios/dpv/wms?",
         title:"Dirección Provincial de Vialidad",
         version:"1.1.1"
     },
@@ -36,6 +36,7 @@ var sources = {
         title:"Instituto Geográfico Nacional",
         version:"1.1.1"
     },
+
     ol: {
         ptype: "gxp_olsource"
     },

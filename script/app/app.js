@@ -163,11 +163,14 @@ var app = new gxp.Viewer({
             actions: ["->"],
             actionTarget: "map.tbar"
         }, {
+            actions:["<a href=\"http://idef.formosa.gob.ar/Contacto.html\" target=\"_blank\">Contáctenos...</a>"]
+        }, {
             actions: ["-"],
             actionTarget: "map.tbar"
         }, {
-            actions:["<a href=\"http://idef.formosa.gob.ar/Contacto.html\" target=\"_blank\">Contáctenos...</a>"]
+            actions:["<a href=\"https://github.com/ideformosa/visor\" target=\"_blank\">GitHub</a>"]
         },
+
         //---------  south grid --------------
         {
             // shared FeatureManager for feature editing, grid and querying
@@ -198,7 +201,7 @@ var app = new gxp.Viewer({
             xtype: "gxp_scaleoverlay"
     }],
 
-	defaultSourceType: "gxp_wmssource",
+	defaultSourceType: "gxp_wmscsource",
 
     sources: sources,
 
@@ -211,26 +214,12 @@ var app = new gxp.Viewer({
         center: [-6697106, -2862855],
         zoom: 7,
         numZoomLevels: 22,
+        zoomDuration: 10, //To match Google’s zoom animation better with OpenLayers animated zooming
 
         layers: layers  // layers.js
     }
 });
 
-app.mapPanel.map.addControl(
-    new OpenLayers.Control.MousePosition({
-
-        formatOutput: function(lonLat) {
-            markup = '<a target="_blank" ' +
-                'href="http://spatialreference.org/ref/sr-org/7483/">' +
-                'EPSG:3857</a> | ';
-
-            point = lonLat.transform(new OpenLayers.Projection("EPSG:3857"), new OpenLayers.Projection("EPSG:4326"));
-
-            markup += convertDMS(point.lat) + "," + convertDMS(point.lon);
-           return markup;
-        }
-    })
-);
 
 slider = new GeoExt.LayerOpacitySlider({
     width: 70,
@@ -256,35 +245,52 @@ btnMetadatos = new Ext.Button({
             width: 800,
             height: 550,
             stateful : false,
-            html: '<iframe src ="' + app.selectedLayer.data.metadataURLs[0].href + 
+            html: '<iframe src ="' + app.selectedLayer.data.metadataURLs[0].href +
                 '" width="100%" height="100%"></iframe>'
         }).show();
     }
 });
+
+app.mapPanel.map.addControl(getOverviewControl());
+
+app.mapPanel.map.addControl(
+    new OpenLayers.Control.MousePosition({
+
+        formatOutput: function(lonLat) {
+            markup = '<a target="_blank" ' +
+                'href="http://spatialreference.org/ref/sr-org/7483/">' +
+                'EPSG:3857</a> | ';
+
+            point = lonLat.transform(new OpenLayers.Projection("EPSG:3857"), new OpenLayers.Projection("EPSG:4326"));
+
+            markup += convertDMS(point.lat) + "," + convertDMS(point.lon);
+           return markup;
+        }
+    })
+);
 
 app.on("ready", function() {
 
     tree = Ext.getCmp('tree');
     tree.on("click", function (node, e) {
         if (node.isLeaf()) {
+
             slider.setLayer(node.layer);
 
             if (app.selectedLayer.data.metadataURLs[0]){
                 btnMetadatos.enable();
             } else {
                 btnMetadatos.disable();
-            };
-        };
+            }
+        }
     });
 
     treeTbar = Ext.getCmp('layer_tree').items.items[0].toolbars[0];
     treeTbar.add(new Ext.Toolbar.Spacer({ width: 3 }));
     treeTbar.add(slider);
     treeTbar.add(new Ext.Toolbar.Separator({ width: 3 }));
-    treeTbar.add(btnMetadatos);  
+    treeTbar.add(btnMetadatos);
     treeTbar.doLayout();
-
-    app.mapPanel.map.addControl(getOverviewControl());
 });
 
 //});

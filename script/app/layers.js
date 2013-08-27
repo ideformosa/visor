@@ -69,12 +69,6 @@ var layers = [
 
     //----- POLIGONOS
     {
-        source: "ign",
-        name: "sig250:continente",
-        group: "ign",
-        visibility:false,
-        tiled: false //ok
-    }, {
         source: "dgct",
         name: "dgct:dgct_prov_parurbanas",
         group: "cartografia",
@@ -125,12 +119,6 @@ var layers = [
         visibility:false,
         tiled: false
     }, {
-        source: "ign",
-        name: "sig250:age",
-        group: "ign",
-        visibility:false,
-        tiled: true //ok
-    }, {
         source: "mce",
         name: "MCE:mce_prov_delzonales",
         group: "educacion",
@@ -169,13 +157,13 @@ var layers = [
         tiled: true
     },  {
         source: "ign",
-        name: "sig250:cam",
+        name: "IGN:red_vial",
         group: "ign",
         visibility:false,
         tiled: false //ok
     }, {
         source: "ign",
-        name: "sig250:ffc",
+        name: "IGN:red_ferroviaria",
         group: "ign",
         visibility:false,
         tiled: false //ok
@@ -244,11 +232,6 @@ var layers = [
         name: "dgct:dgct_este_nombrescalles",
         group: "cartografia",
         visibility:false,
-        tiled: false //ok
-    }, {
-        source: "ign",
-        name: "sig250:jad",
-        group: "ign",
         tiled: false //ok
     }
 ];

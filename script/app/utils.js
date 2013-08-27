@@ -3,29 +3,28 @@
 //
 getOverviewControl = function() {
     
-    var capaOverview = new OpenLayers.Layer.WMS(
-        "IGN",
-        "http://wms.ign.gob.ar/geoserver/wms?",
-        {
-          layers: "SIGN"
-        },{
-          buffer: 0,
-          ratio: 1,
-          singleTile: true
-        }
+    capaOverview = new OpenLayers.Layer.WMS(
+       "IGN",
+       "http://wms.ign.gob.ar/geoserver/wms?",
+       {
+         layers: "sig250:capabasesig250"
+       },{
+         singleTile: true
+       }
     );
-    var mapOptions = {
+
+    mapOptions = {
         projection: new OpenLayers.Projection("EPSG:3857")
     };
 
-    var controlOptions = {
+    controlOptions = {
         mapOptions: mapOptions,
         maximizeTitle: 'Mostrar mapa de referencia',
         minimizeTitle: 'Ocultar mapa de referencia',
         layers: [capaOverview]
     };
 
-    var overview = new OpenLayers.Control.OverviewMap(controlOptions);
+    overview = new OpenLayers.Control.OverviewMap(controlOptions);
     
     return overview;
 };
