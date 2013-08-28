@@ -51,20 +51,17 @@ var layers = [
         source: "dgct",
         name: "dgct:dgct_este_mosaicospot",
         group: "raster",
-        visibility:false,
-        tiled: true  //ok
+        visibility:false
     }, {
         source: "dgct",
         name: "dgct:dgct_prov_historicoparajes",
         group: "raster",
-        visibility:false,
-        tiled: true  //ok
+        visibility:false
     }, {
         source: "dpv",
         name: "dpv:dpv_prov_satelital",
         group: "raster",
-        visibility:false,
-        tiled: true  //ok
+        visibility:false
     },
 
     //----- POLIGONOS
@@ -72,59 +69,50 @@ var layers = [
         source: "dgct",
         name: "dgct:dgct_prov_parurbanas",
         group: "cartografia",
-        visibility:false,
-        tiled: true //ok
+        visibility:false
     },  {
         source: "dgct",
         name: "dgct:dgct_prov_parrurales",
         group: "cartografia",
-        visibility:false,
-        tiled: true //ok
+        visibility:false
     }, {
         source: "dec",
         name: "dec:dec_prov_censo2010",
         group: "estadistica",
         title:"Censo 2010 por Radio censal (sujeto a revisión)",
-        visibility:false,
-        tiled: true //ok
+        visibility:false
     }, {
         source: "dec",
         name: "dec:dec_prov_censo2010xdpto",
         group: "estadistica",
         title:"Censo 2010 por Dpto. (sujeto a revisión)",
-        visibility:false,
-        tiled: true //ok
+        visibility:false
     }, {
         source: "idef",
         name: "idef:reservas",
         group: "reservas",
-        visibility:false,
-        tiled: true
+        visibility:false
     }, {
         source: "upca",
         name: "upca:upca_prov_cuencashid",
         group: "hidrografia",
-        visibility:false,
-        tiled: false
+        visibility:false
     }, {
         source: "upca",
         name: "upca:upca_prov_lagembestbania",
         group: "hidrografia",
-        visibility:false,
-        tiled: false
+        visibility:false
     }, {
         source: "upca",
         name: "upca:upca_prov_sistbanialaest",
         group: "hidrografia",
-        visibility:false,
-        tiled: false
+        visibility:false
     }, {
         source: "mce",
         name: "MCE:mce_prov_delzonales",
         group: "educacion",
         title:"Delegaciones Zonales",
-        visibility:false,
-        tiled: false
+        visibility:false
     },
 
     //-----  LINEAS
@@ -132,59 +120,49 @@ var layers = [
         source: "dgct",
         name: "dgct:cat_prov_manzanas",
         group: "cartografia",
-        visibility:false,
-        tiled: false
+        visibility:false
     }, {
         source: "dpv",
         name: "dpv:dpv_prov_redterciaria",
-        group: "viasdecom",
-        tiled: true
+        group: "viasdecom"
     }, {
         source: "dpv",
         name: "dpv:dpv_prov_rutasprov",
-        group: "viasdecom",
-        tiled: true
+        group: "viasdecom"
     }, {
         source: "dpv",
         name: "dpv:dpv_prov_rutasnac",
-        group: "viasdecom",
-        tiled: true
+        group: "viasdecom"
     }, {
         source: "dpv",
         name: "dpv:dpv_prov_distritosdpv",
         group: "viasdecom",
-        visibility:false,
-        tiled: true
+        visibility:false
     },  {
         source: "ign",
         name: "IGN:red_vial",
         group: "ign",
-        visibility:false,
-        tiled: false //ok
+        visibility:false
     }, {
         source: "ign",
         name: "IGN:red_ferroviaria",
         group: "ign",
-        visibility:false,
-        tiled: false //ok
+        visibility:false
     }, {
         source: "upca",
         name: "upca:upca_prov_canalcorred",
         group: "hidrografia",
-        visibility:false,
-        tiled: false
+        visibility:false
     }, {
         source: "upca",
         name: "upca:upca_prov_riacharroy",
         group: "hidrografia",
-        visibility:false,
-        tiled: false
+        visibility:false
     }, {
         source: "upca",
         name: "upca:upca_prov_riosppales",
         group: "hidrografia",
-        visibility:false,
-        tiled: false
+        visibility:false
     },
 
     //----- PUNTOS
@@ -193,25 +171,21 @@ var layers = [
         name: "MCE:mce_prov_escuelas",
         group: "educacion",
         title:"Unidades Educativas (sujeto a revisión)",
-        visibility:false,
-        tiled: true //ok
+        visibility:false
     }, {
         source: "upca",
         name: "upca:upca_prov_redhidrom",
         group: "hidrografia",
-        visibility:false,
-        tiled: true //ok
+        visibility:false
     }, {
         source: "upca",
         name: "upca:upca_prov_redpluviom",
         group: "hidrografia",
-        visibility:false,
-        tiled: true //ok
+        visibility:false
     }, {
         source: "ign",
         name: "IGN:localidad",
-        group: "ign",
-        tiled: true //ok
+        group: "ign"
     },
 
     //----- LABELS
@@ -219,19 +193,16 @@ var layers = [
         source: "dgct",
         name: "dgct:dgct_oeste_nombrescalles",
         group: "cartografia",
-        visibility:false,
-        tiled: false
+        visibility:false
     }, {
         source: "dgct",
         name: "dgct:dgct_centro_nombrescalles",
         group: "cartografia",
-        visibility:false,
-        tiled: false
+        visibility:false
     }, {
         source: "dgct",
         name: "dgct:dgct_este_nombrescalles",
         group: "cartografia",
-        visibility:false,
-        tiled: false //ok
+        visibility:false
     }
 ];
