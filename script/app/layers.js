@@ -49,17 +49,17 @@ var layers = [
     //----- RASTER
     {
         source: "dgct",
-        name: "dgct:dgct_este_mosaicospot",
+        name: "dgct_este_mosaicospot",
         group: "raster",
         visibility:false
     }, {
         source: "dgct",
-        name: "dgct:dgct_prov_historicoparajes",
+        name: "dgct_prov_historicoparajes",
         group: "raster",
         visibility:false
     }, {
         source: "dpv",
-        name: "dpv:dpv_prov_satelital",
+        name: "dpv_prov_satelital",
         group: "raster",
         visibility:false
     },
@@ -67,49 +67,49 @@ var layers = [
     //----- POLIGONOS
     {
         source: "dgct",
-        name: "dgct:dgct_prov_parurbanas",
+        name: "dgct_prov_parurbanas",
         group: "cartografia",
         visibility:false
     },  {
         source: "dgct",
-        name: "dgct:dgct_prov_parrurales",
+        name: "dgct_prov_parrurales",
         group: "cartografia",
         visibility:false
     }, {
         source: "dec",
-        name: "dec:dec_prov_censo2010",
+        name: "dec_prov_censo2010",
         group: "estadistica",
         title:"Censo 2010 por Radio censal (sujeto a revisión)",
         visibility:false
     }, {
         source: "dec",
-        name: "dec:dec_prov_censo2010xdpto",
+        name: "dec_prov_censo2010xdpto",
         group: "estadistica",
         title:"Censo 2010 por Dpto. (sujeto a revisión)",
         visibility:false
     }, {
         source: "idef",
-        name: "idef:reservas",
+        name: "reservas",
         group: "reservas",
         visibility:false
     }, {
         source: "upca",
-        name: "upca:upca_prov_cuencashid",
+        name: "upca_prov_cuencashid",
         group: "hidrografia",
         visibility:false
     }, {
         source: "upca",
-        name: "upca:upca_prov_lagembestbania",
+        name: "upca_prov_lagembestbania",
         group: "hidrografia",
         visibility:false
     }, {
         source: "upca",
-        name: "upca:upca_prov_sistbanialaest",
+        name: "upca_prov_sistbanialaest",
         group: "hidrografia",
         visibility:false
     }, {
         source: "mce",
-        name: "MCE:mce_prov_delzonales",
+        name: "mce_prov_delzonales",
         group: "educacion",
         title:"Delegaciones Zonales",
         visibility:false
@@ -118,24 +118,24 @@ var layers = [
     //-----  LINEAS
     {
         source: "dgct",
-        name: "dgct:cat_prov_manzanas",
+        name: "cat_prov_manzanas",
         group: "cartografia",
         visibility:false
     }, {
         source: "dpv",
-        name: "dpv:dpv_prov_redterciaria",
+        name: "dpv_prov_redterciaria",
         group: "viasdecom"
     }, {
         source: "dpv",
-        name: "dpv:dpv_prov_rutasprov",
+        name: "dpv_prov_rutasprov",
         group: "viasdecom"
     }, {
         source: "dpv",
-        name: "dpv:dpv_prov_rutasnac",
+        name: "dpv_prov_rutasnac",
         group: "viasdecom"
     }, {
         source: "dpv",
-        name: "dpv:dpv_prov_distritosdpv",
+        name: "dpv_prov_distritosdpv",
         group: "viasdecom",
         visibility:false
     },  {
@@ -150,17 +150,17 @@ var layers = [
         visibility:false
     }, {
         source: "upca",
-        name: "upca:upca_prov_canalcorred",
+        name: "upca_prov_canalcorred",
         group: "hidrografia",
         visibility:false
     }, {
         source: "upca",
-        name: "upca:upca_prov_riacharroy",
+        name: "upca_prov_riacharroy",
         group: "hidrografia",
         visibility:false
     }, {
         source: "upca",
-        name: "upca:upca_prov_riosppales",
+        name: "upca_prov_riosppales",
         group: "hidrografia",
         visibility:false
     },
@@ -168,18 +168,18 @@ var layers = [
     //----- PUNTOS
     {
         source: "mce",
-        name: "MCE:mce_prov_escuelas",
+        name: "mce_prov_escuelas",
         group: "educacion",
         title:"Unidades Educativas (sujeto a revisión)",
         visibility:false
     }, {
         source: "upca",
-        name: "upca:upca_prov_redhidrom",
+        name: "upca_prov_redhidrom",
         group: "hidrografia",
         visibility:false
     }, {
         source: "upca",
-        name: "upca:upca_prov_redpluviom",
+        name: "upca_prov_redpluviom",
         group: "hidrografia",
         visibility:false
     }, {
@@ -191,17 +191,17 @@ var layers = [
     //----- LABELS
     {
         source: "dgct",
-        name: "dgct:dgct_oeste_nombrescalles",
+        name: "dgct_oeste_nombrescalles",
         group: "cartografia",
         visibility:false
     }, {
         source: "dgct",
-        name: "dgct:dgct_centro_nombrescalles",
+        name: "dgct_centro_nombrescalles",
         group: "cartografia",
         visibility:false
     }, {
         source: "dgct",
-        name: "dgct:dgct_este_nombrescalles",
+        name: "dgct_este_nombrescalles",
         group: "cartografia",
         visibility:false
     }
