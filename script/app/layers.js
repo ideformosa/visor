@@ -14,6 +14,13 @@ var layers = [
 
     //------- Capas base
     {
+        source: "osm",
+        group: "background",
+        name: "mapnik",
+        title: "OpenStreetMap",
+        visibility: false
+    },
+    {
         source: "ign",
         name: "IGN:limite_politico_administrativo_lim",
         title: "IGN: Límite Político Administrativo",
