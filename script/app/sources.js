@@ -32,7 +32,7 @@ var sources = {
     },
 
     ign: {
-        url:"http://wms.ign.gob.ar/geoserver/wms?",
+        url:"ogc/ign.xml",
         title:"Instituto Geográfico Nacional",
         version:"1.1.1"
     },
