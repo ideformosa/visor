@@ -25,6 +25,11 @@ var sources = {
         title:"Ministerio de Cultura y Educación",
         version:"1.1.1"
     },
+    mdh: {
+        url:"http://idef.formosa.gob.ar/mdh/servicios/mdh/wms?",
+        title:"Ministerio de Desarrollo Humano",
+        version:"1.1.1"
+    },
     upca: {
         url:"http://idef.formosa.gob.ar/servicios/upca/wms?",
         title:"Unidad Provincial Coordinadora del Agua",

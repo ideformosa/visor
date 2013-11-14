@@ -52,6 +52,10 @@ var tree_groups = {
         title: "Parques y Reservas",
         expanded: false
     },
+    "salud": {
+        title: "Salud",
+        expanded: false
+    },
     "viasdecom": {
         title: "Vías de Comunicación"
     },

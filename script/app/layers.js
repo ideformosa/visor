@@ -193,6 +193,11 @@ var layers = [
         source: "ign",
         name: "IGN:localidad",
         group: "ign"
+    }, {
+        source: "mdh",
+        name: "prov_centrossalud",
+        group: "salud",
+        visibility:false
     },
 
     //----- LABELS
