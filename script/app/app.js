@@ -253,6 +253,8 @@ btnMetadatos = new Ext.Button({
 
 app.mapPanel.map.addControl(getOverviewControl());
 
+app.mapPanel.map.addControl(new OpenLayers.Control.Permalink());
+
 app.mapPanel.map.addControl(
     new OpenLayers.Control.MousePosition({
 
