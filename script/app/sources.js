@@ -50,8 +50,8 @@ var sources = {
         ptype: "gxp_googlesource"
     },
 
-    osm: {
-        ptype: "gxp_osmsource"
+    mapquest: {
+        ptype: "gxp_mapquestsource"
     }
 
     /*,
