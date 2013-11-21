@@ -130,6 +130,12 @@ var app = new gxp.Viewer({
             actionTarget: "map.tbar",
             toggleGroup: "mapnav"
         }, {
+            ptype: "gxp_googlegeocoder",
+            outputTarget: "map.tbar",
+            outputConfig: {
+                emptyText: "Buscar un lugar ..."
+            }
+        }, {
             actions: ["-"],
             actionTarget: "map.tbar"
         }, {
