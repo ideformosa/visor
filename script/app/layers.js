@@ -91,8 +91,8 @@ var layers = [
         title:"Censo 2010 por Dpto. (sujeto a revisión)",
         visibility:false
     }, {
-        source: "idef",
-        name: "reservas",
+        source: "mpa",
+        name: "prov_reservas",
         group: "reservas",
         visibility:false
     }, {

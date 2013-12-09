@@ -1,10 +1,5 @@
 var sources = {
 
-    idef: {
-        url: "http://idef.formosa.gob.ar/servicios/idef/wms?",
-        title: "IDE Formosa",
-        version:"1.1.1"
-    },
     dec: {
         url:"http://idef.formosa.gob.ar/servicios/dec/wms?",
         title:"Dirección de Estadística y Censo",
@@ -28,6 +23,11 @@ var sources = {
     mdh: {
         url:"http://idef.formosa.gob.ar/mdh/servicios/mdh/wms?",
         title:"Ministerio de Desarrollo Humano",
+        version:"1.1.1"
+    },
+    mpa: {
+        url:"http://idef.formosa.gob.ar/servicios/mpa/wms?",
+        title:"Ministerio de la Producción y Ambiente",
         version:"1.1.1"
     },
     upca: {
