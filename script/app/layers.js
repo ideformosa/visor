@@ -65,6 +65,11 @@ var layers = [
         name: "dpv_prov_satelital",
         group: "raster",
         visibility:false
+    }, {
+        source: "dpv",
+        name: "dpv_pilco_rasterhd",
+        group: "raster",
+        visibility:false
     },
 
     //----- POLIGONOS
