@@ -70,6 +70,11 @@ var layers = [
         name: "dpv_pilco_rasterhd",
         group: "raster",
         visibility:false
+    }, {
+        source: "dpv",
+        name: "dpv_lomitas_rasterhd",
+        group: "raster",
+        visibility:false
     },
 
     //----- POLIGONOS
