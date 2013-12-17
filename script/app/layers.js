@@ -14,8 +14,8 @@ var layers = [
 
     //------- Capas base
     {
-        source: "mapquest",
-        name: "osm"
+        source: "osm",
+        name: "mapnik"
     }, {
         source: "ign",
         name: "IGN:limite_politico_administrativo_lim",
