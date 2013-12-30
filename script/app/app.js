@@ -1,11 +1,20 @@
 //Ext.onReady(function() {
+GeoExt.Lang.set("es");
 
 // pink tile avoidance
 OpenLayers.IMAGE_RELOAD_ATTEMPTS = 5;
 // make OL compute scale according to WMS spec
 OpenLayers.DOTS_PER_INCH = 25.4 / 0.28;
 
-GeoExt.Lang.set("es");
+
+slider = new GeoExt.LayerOpacitySlider({
+    width: 120,
+    layer: null,
+    aggressive: true,
+    inverse: true,
+    plugins: new GeoExt.LayerOpacitySliderTip({template: '<div>{opacity}%</div>'})
+});
+
 
 var app = new gxp.Viewer({
 
@@ -73,6 +82,7 @@ var app = new gxp.Viewer({
                 autoScroll: true,
                 animate: true,
                 tbar: [],
+                bbar: ["Transparencia:&nbsp;&nbsp;", slider]
                 /*listeners: {
                    "click": clickHandler
                 }*/
@@ -232,14 +242,6 @@ var app = new gxp.Viewer({
     }
 });
 
-
-slider = new GeoExt.LayerOpacitySlider({
-    width: 70,
-    layer: null,
-    aggressive: true,
-    inverse: true,
-    plugins: new GeoExt.LayerOpacitySliderTip({template: '<div>Transparencia: {opacity}%</div>'})
-});
     
 btnMetadatos = new Ext.Button({
     text: 'Metadatos',
@@ -301,7 +303,6 @@ app.on("ready", function() {
 
     treeTbar = Ext.getCmp('layer_tree').items.items[0].toolbars[0];
     treeTbar.add(new Ext.Toolbar.Spacer({ width: 3 }));
-    treeTbar.add(slider);
     treeTbar.add(new Ext.Toolbar.Separator({ width: 3 }));
     treeTbar.add(btnMetadatos);
     treeTbar.doLayout();
