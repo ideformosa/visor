@@ -21,6 +21,7 @@ GeoExt.Lang.add("en", {
         layerSelectionText: "查看现有数据:",
         doneText: "完成",
         uploadText: "上传图层",
+        addFeedActionMenuText: "Add feeds",
         searchText: "Search for layers"
     },
     
@@ -36,7 +37,9 @@ GeoExt.Lang.add("en", {
         createFeatureActionText: "创建",
         editFeatureActionText: "修改",
         createFeatureActionTip: "创建新图形",
-        editFeatureActionTip: "修改已存在图形"
+        editFeatureActionTip: "修改已存在图形",
+        commitTitle: "Commit message",
+        commitText: "Please enter a commit message for this edit:"
     },
     
     "gxp.plugins.FeatureGrid.prototype": {
@@ -204,7 +207,7 @@ GeoExt.Lang.add("en", {
 
     "gxp.FeatureEditPopup.prototype": {
         closeMsgTitle: "保存修改?",
-        closeMsg: "图形修改未被保存，您打算保存这些修改么？",
+        closeMsg: "图形修改未被保存,您打算保存这些修改么？",
         deleteMsgTitle: "删除图形?",
         deleteMsg: "您确定要删除这些图形？",
         editButtonText: "修改",
@@ -212,7 +215,7 @@ GeoExt.Lang.add("en", {
         deleteButtonText: "删除",
         deleteButtonTooltip: "删除这一图形",
         cancelButtonText: "取消",
-        cancelButtonTooltip: "停止编辑，放弃修改",
+        cancelButtonTooltip: "停止编辑,放弃修改",
         saveButtonText: "保存",
         saveButtonTooltip: "保存修改"
     },
@@ -306,6 +309,7 @@ GeoExt.Lang.add("en", {
     },
     
     "gxp.WMSLayerPanel.prototype": {
+        attributionText: "Attribution",
         aboutText: "关于",
         titleText: "标题",
         nameText: "名字",
@@ -318,7 +322,17 @@ GeoExt.Lang.add("en", {
         cacheFieldText: "使用缓存版本",
         stylesText: "Available styles",
         infoFormatText: "格式信息",
-        infoFormatEmptyText: "选择一种格式"
+        infoFormatEmptyText: "选择一种格式",
+        displayOptionsText: "Display options",
+        queryText: "Limit with filters",
+        scaleText: "Limit by scale",
+        minScaleText: "Min scale",
+        maxScaleText: "Max scale",
+        switchToFilterBuilderText: "Switch back to filter builder",
+        cqlPrefixText: "or ",
+        cqlText: "use CQL filter instead",
+        singleTileText: "Single tile",
+        singleTileFieldText: "Use a single tile"
     },
 
     "gxp.EmbedMapDialog.prototype": {
@@ -389,6 +403,23 @@ GeoExt.Lang.add("en", {
 
     "gxp.ScaleOverlay.prototype": { 
         zoomLevelText: "聚焦度"
+    },
+
+    "gxp.Viewer.prototype": {
+        saveErrorText: "Trouble saving: "
+    },
+
+    "gxp.FeedSourceDialog.prototype": {
+        feedTypeText:"源",
+        addPicasaText:"Picasa照片",
+        addYouTubeText:"YouTube視頻",
+        addRSSText:"其他的GeoRSS飼料",
+        addFeedText:"地圖",
+        addTitleText:"標題",
+        keywordText:"關鍵字",
+        doneText:"完成",
+        titleText:"添加訂閱",
+        maxResultsText:"最大項目"
     }
 
 });

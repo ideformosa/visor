@@ -90,6 +90,13 @@ gxp.plugins.GeoNodeCatalogueSource = Ext.extend(gxp.plugins.CatalogueSource, {
         gxp.plugins.LayerSource.prototype.createStore.apply(this, arguments);
     },
 
+    /** api: method[getPagingStart]
+     *  :return: ``Integer`` Where does paging start at?
+     */
+    getPagingStart: function() {
+        return 0;
+    },
+
     /** api: method[getPagingParamNames]
      *  :return: ``Object`` with keys start and limit.
      *
@@ -118,17 +125,25 @@ gxp.plugins.GeoNodeCatalogueSource = Ext.extend(gxp.plugins.CatalogueSource, {
      */
     filter: function(options) {
         var bbox = undefined;
-        for (var i=0, ii=options.filters.length; i<ii; ++i) {
-            var f = options.filters[i];
-            if (f instanceof OpenLayers.Filter.Spatial) {
-                bbox = f.value.toBBOX();
-                break;
+
+        // check for the filters property before using it
+        if (options.filters !== undefined) {
+            for (var i=0, ii=options.filters.length; i<ii; ++i) {
+                var f = options.filters[i];
+                if (f instanceof OpenLayers.Filter.Spatial) {
+                    bbox = f.value.toBBOX();
+                    break;
+                }
             }
         }
         Ext.apply(this.store.baseParams, {
-            'q': options.queryString,
-            'limit': options.limit
+            'q': options.queryString
         });
+        if (options.limit !== undefined) {
+            Ext.apply(this.store.baseParams, {
+                'limit': options.limit
+            });
+        }
         if (bbox !== undefined) {
             Ext.apply(this.store.baseParams, {
                 'bbox': bbox

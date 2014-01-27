@@ -100,6 +100,7 @@ gxp.WMSLayerPanel = Ext.extend(Ext.TabPanel, {
     /** i18n */
     aboutText: "About",
     titleText: "Title",
+    attributionText: "Attribution",
     nameText: "Name",
     descriptionText: "Description",
     displayText: "Display",
@@ -119,6 +120,8 @@ gxp.WMSLayerPanel = Ext.extend(Ext.TabPanel, {
     switchToFilterBuilderText: "Switch back to filter builder",
     cqlPrefixText: "or ",
     cqlText: "use CQL filter instead",
+    singleTileText: "Single tile",
+    singleTileFieldText: "Use a single tile",
 
     initComponent: function() {
         this.cqlFormat = new OpenLayers.Format.CQL();
@@ -290,6 +293,22 @@ gxp.WMSLayerPanel = Ext.extend(Ext.TabPanel, {
                     anchor: "99%",
                     value: this.layerRecord.get("name"),
                     readOnly: true
+                }, {
+                    xtype: "textfield",
+                    fieldLabel: this.attributionText,
+                    anchor: "99%",
+                    listeners: {
+                        change: function(field) {
+                            var layer = this.layerRecord.getLayer();
+                            layer.attribution = field.getValue();
+                            layer.map.events.triggerEvent("changelayer", {
+                                layer: layer, property: "attribution"
+                            });
+                            this.fireEvent("change");
+                        },
+                        scope: this
+                    },
+                    value: this.layerRecord.getLayer().attribution
                 }]
             }, {
                 layout: "form",
@@ -414,7 +433,7 @@ gxp.WMSLayerPanel = Ext.extend(Ext.TabPanel, {
                                 layer.mergeNewParams({
                                     transparent: checked ? "true" : "false"
                                 });
-                                 this.fireEvent("change");
+                                this.fireEvent("change");
                             },
                             scope: this
                         }
@@ -422,6 +441,25 @@ gxp.WMSLayerPanel = Ext.extend(Ext.TabPanel, {
                         xtype: "label",
                         cls: "gxp-layerproperties-label",
                         text: this.transparentText
+                    }]
+                }, {
+                    xtype: "compositefield",
+                    fieldLabel: this.singleTileText,
+                    anchor: "99%",
+                    items: [{
+                        xtype: "checkbox",
+                        checked: this.layerRecord.get("layer").singleTile,
+                        listeners: {
+                            check: function(checkbox, checked) {
+                                layer.addOptions({singleTile: checked});
+                                this.fireEvent("change");
+                            },
+                            scope: this
+                        }
+                    }, {
+                        xtype: "label",
+                        cls: "gxp-layerproperties-label",
+                        text: this.singleTileFieldText
                     }]
                 }, {
                     xtype: "compositefield",

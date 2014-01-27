@@ -21,6 +21,7 @@ GeoExt.Lang.add("de", {
         layerSelectionText: "Verfügbare Daten anzeigen von:",
         doneText: "Fertig",
         uploadText: "Daten hochladen",
+        addFeedActionMenuText: "Add feeds",
         searchText: "Search for layers"
     },
     
@@ -36,7 +37,9 @@ GeoExt.Lang.add("de", {
         createFeatureActionText: "Erzeugen",
         editFeatureActionText: "Bearbeiten",
         createFeatureActionTip: "neues Objekt erstellen",
-        editFeatureActionTip: "bestehendes Objekt bearbeiten"
+        editFeatureActionTip: "bestehendes Objekt bearbeiten",
+        commitTitle: "Commit message",
+        commitText: "Please enter a commit message for this edit:"
     },
     
     "gxp.plugins.FeatureGrid.prototype": {
@@ -121,8 +124,8 @@ GeoExt.Lang.add("de", {
     "gxp.plugins.NavigationHistory.prototype": {
         previousMenuText: "Kartenausschnitt zurück",
         nextMenuText: "Kartenausschnitt vorwärts",
-        previousTooltip: "Kartenausschnitt zurück",
-        nextTooltip: "Kartenausschnitt vorwärts"
+        previousTooltip: "Vorherigen Kartenausschnitt anzeigen",
+        nextTooltip: "Nächsten Kartenausschnit anzeigen"
     },
 
     "gxp.plugins.OSMSource.prototype": {
@@ -181,14 +184,14 @@ GeoExt.Lang.add("de", {
         zoomMenuText: "Zoom Box",
         zoomInMenuText: "Vergrössern",
         zoomOutMenuText: "Verkleinern",
-        zoomTooltip: "Zoom durch Aufziehen einer Box",
+        zoomTooltip: "Box aufziehen zum Zoomen",
         zoomInTooltip: "Vergrössern",
         zoomOutTooltip: "Verkleinern"
     },
     
     "gxp.plugins.ZoomToExtent.prototype": {
         menuText: "Maximale Ausdehnung",
-        tooltip: "Maximale Ausdehnung"
+        tooltip: "Maximale Ausdehnung anzeigen"
     },
     
     "gxp.plugins.ZoomToDataExtent.prototype": {
@@ -310,6 +313,7 @@ GeoExt.Lang.add("de", {
     },
     
     "gxp.WMSLayerPanel.prototype": {
+        attributionText: "Attribution",
         aboutText: "Über",
         titleText: "Titel",
         nameText: "Name",
@@ -322,7 +326,17 @@ GeoExt.Lang.add("de", {
         cacheFieldText: "Version aus dem Cache benützen",
         stylesText: "Verfügbare Styles",
         infoFormatText: "Info Format",
-        infoFormatEmptyText: "Format auswählen"
+        infoFormatEmptyText: "Format auswählen",
+        displayOptionsText: "Display options",
+        queryText: "Limit with filters",
+        scaleText: "Limit by scale",
+        minScaleText: "Min scale",
+        maxScaleText: "Max scale",
+        switchToFilterBuilderText: "Switch back to filter builder",
+        cqlPrefixText: "or ",
+        cqlText: "use CQL filter instead",
+        singleTileText: "Single tile",
+        singleTileFieldText: "Use a single tile"
     },
 
     "gxp.EmbedMapDialog.prototype": {
@@ -393,6 +407,23 @@ GeoExt.Lang.add("de", {
 
     "gxp.ScaleOverlay.prototype": { 
         zoomLevelText: "Zoomstufe"
+    },
+
+    "gxp.Viewer.prototype": {
+        saveErrorText: "Beim Speichern ist ein Problem aufgetreten: "
+    },
+
+    "gxp.FeedSourceDialog.prototype": {
+        feedTypeText: "Source",
+        addPicasaText: "Picasa Fotos",
+        addYouTubeText: "YouTube Videos",
+        addRSSText: "Andere GeoRSS Feed",
+        addFeedText: "zur Karte hinzufügen",
+        addTitleText: "Titel",
+        keywordText: "Keyword",
+        doneText: "Fertig",
+        titleText: "Add-Feeds",
+        maxResultsText: "Max Items"
     }
 
 });

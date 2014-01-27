@@ -9,8 +9,11 @@
 /**
  * @requires plugins/Tool.js
  * @requires widgets/NewSourceDialog.js
+ * @requires widgets/FeedSourceDialog.js
  * @requires plugins/GeoNodeCatalogueSource.js
  * @requires widgets/CatalogueSearchPanel.js
+ * @requires plugins/TMSSource.js
+ * @requires plugins/ArcRestSource.js
  */
 
 /** api: (define)
@@ -46,6 +49,12 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
      */
     findActionMenuText: "Find layers",
 
+    /** api: config[addActionMenuText]
+     *  ``String``
+     *  Text for add feed menu item (i18n).
+     */
+    addFeedActionMenuText: "Add feeds",
+
     /** api: config[addActionTip]
      *  ``String``
      *  Text for add action tooltip (i18n).
@@ -79,7 +88,7 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
      *  ``String``
      *  Text for an error message when WMS GetCapabilities retrieval fails (i18n).
      */
-    addLayerSourceErrorText: "Error getting WMS capabilities ({msg}).\nPlease check the url and try again.",
+    addLayerSourceErrorText: "Error getting {type} capabilities ({msg}).\nPlease check the url and try again.",
 
     /** api: config[availableLayersText]
      *  ``String``
@@ -128,6 +137,13 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
      *  If provided, a :class:`gxp.CatalogueSearchPanel` will be added as a
      *  menu option. This panel will be constructed using the provided config.
      *  By default, no search functionality is provided.
+     */
+
+    /** api: config[feeds]
+     *  ``Object | Boolean``
+     *  If provided, a :class:`gxp.FeedSourceDialog` will be added as a
+     *  menu option. This panel will be constructed using the provided config.
+     *  By default, no feed functionality is provided.
      */
 
     /** api: config[upload]
@@ -248,11 +264,30 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
                 handler: this.showCapabilitiesGrid, 
                 scope: this
             })];
-            if (this.initialConfig.search) {
-                items.push(new Ext.menu.Item({
-                    iconCls: 'gxp-icon-addlayers', 
+            if (this.initialConfig.search && this.initialConfig.search.selectedSource &&
+              this.target.sources[this.initialConfig.search.selectedSource]) {
+                var search = new Ext.menu.Item({
+                    iconCls: 'gxp-icon-addlayers',
                     text: this.findActionMenuText,
                     handler: this.showCatalogueSearch,
+                    scope: this
+                });
+                items.push(search);
+                Ext.Ajax.request({
+                    method: "GET",
+                    url: this.target.sources[this.initialConfig.search.selectedSource].url,
+                    callback: function(options, success, response) {
+                        if (success === false) {
+                            search.hide();
+                        }
+                    }
+                });
+            }
+            if (this.initialConfig.feeds) {
+                items.push(new Ext.menu.Item({
+                    iconCls: 'gxp-icon-addlayers',
+                    text: this.addFeedActionMenuText,
+                    handler: this.showFeedDialog,
                     scope: this
                 }));
             }
@@ -300,13 +335,21 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
     showCatalogueSearch: function() {
         var selectedSource = this.initialConfig.search.selectedSource;
         var sources = {};
+        var found = false;
         for (var key in this.target.layerSources) {
             var source = this.target.layerSources[key];
             if (source instanceof gxp.plugins.CatalogueSource) {
                 var obj = {};
                 obj[key] = source;
                 Ext.apply(sources, obj);
+                found = true;
             }
+        }
+        if (found === false) {
+            if (window.console) {
+                window.console.debug('No catalogue source specified');
+            }
+            return;
         }
         var output = gxp.plugins.AddLayers.superclass.addOutput.apply(this, [{
             sources: sources,
@@ -315,26 +358,27 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
             width: 315,
             selectedSource: selectedSource,
             xtype: 'gxp_cataloguesearchpanel',
-            map: this.target.mapPanel.map,
-            listeners: {
-                'addlayer': function(cmp, sourceKey, layerConfig) {
-                    var source = this.target.layerSources[sourceKey];
-                    var bounds = OpenLayers.Bounds.fromArray(layerConfig.bbox);
-                    var mapProjection = this.target.mapPanel.map.getProjection();
-                    var bbox = bounds.transform(layerConfig.srs, mapProjection);
-                    layerConfig.srs = mapProjection;
-                    layerConfig.bbox = bbox.toArray();
-                    layerConfig.source = this.initialConfig.catalogSourceKey !== null ? 
-                        this.initialConfig.catalogSourceKey : sourceKey;
-                    var record = source.createLayerRecord(layerConfig);
-                    this.target.mapPanel.layers.add(record);
-                    if (bbox) {
-                        this.target.mapPanel.map.zoomToExtent(bbox);
-                    }
-                },
-                scope: this
-            }
+            map: this.target.mapPanel.map
         }]);
+        output.on({
+            'addlayer': function(cmp, sourceKey, layerConfig) {
+                var source = this.target.layerSources[sourceKey];
+                var bounds = OpenLayers.Bounds.fromArray(layerConfig.bbox,
+                    (source.yx && source.yx[layerConfig.projection] === true));
+                var mapProjection = this.target.mapPanel.map.getProjection();
+                var bbox = bounds.transform(layerConfig.srs, mapProjection);
+                layerConfig.srs = mapProjection;
+                layerConfig.bbox = bbox.toArray();
+                layerConfig.source = this.initialConfig.catalogSourceKey !== null ?
+                    this.initialConfig.catalogSourceKey : sourceKey;
+                var record = source.createLayerRecord(layerConfig);
+                this.target.mapPanel.layers.add(record);
+                if (bbox) {
+                    this.target.mapPanel.map.zoomToExtent(bbox);
+                }
+            },
+            scope: this
+        });
         var popup = output.findParentByType('window');
         popup && popup.center();
         return output;
@@ -350,6 +394,45 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
             this.addOutput(this.capGrid);
         }
         this.capGrid.show();
+    },
+
+    /** api: method[showFeedDialog]
+     * Shows the window with a dialog for adding feeds.
+     */
+    showFeedDialog: function() {
+        if(!this.feedDialog) {
+            var Cls = this.outputTarget ? Ext.Panel : Ext.Window;
+            this.feedDialog = new Cls(Ext.apply({
+                closeAction: "hide",
+                autoScroll: true,
+                title: this.addFeedActionMenuText,
+                items: [{
+                    xtype: "gxp_feedsourcedialog",
+                    target: this.target,
+                    listeners: {
+                        'addfeed':function (ptype, config) {
+                            var sourceConfig = {"config":{"ptype":ptype}};
+                            if (config.url) {
+                                sourceConfig.config["url"] = config.url;
+                            }
+                            var source = this.target.addLayerSource(sourceConfig);
+                            config.source = source.id;
+                            var feedRecord = source.createLayerRecord(config);
+                            this.target.mapPanel.layers.add([feedRecord]);
+                            this.feedDialog.hide();
+                        },
+                        scope: this
+                    }
+                }]
+            }, this.initialConfig.outputConfig));
+            if (Cls === Ext.Panel) {
+                this.addOutput(this.feedDialog);
+            }
+        }
+        if (!(this.feedDialog instanceof Ext.Window)) {
+            this.addOutput(this.feedDialog);
+        }
+        this.feedDialog.show();
     },
 
     /**
@@ -425,7 +508,7 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
         });
         
         var sourceComboBox = new Ext.form.ComboBox({
-            ref: "../sourceComboBox",
+            ref: "../../sourceComboBox",
             width: 165,
             store: sources,
             valueField: "id",
@@ -466,15 +549,19 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
                 scope: this
             }
         });
-        
-        var capGridToolbar = null;
+
+        var capGridToolbar = null,
+            container;
+
         if (this.target.proxy || data.length > 1) {
-            capGridToolbar = [
-                new Ext.Toolbar.TextItem({
-                    text: this.layerSelectionText
-                }),
-                sourceComboBox
-            ];
+            container = new Ext.Container({
+                cls: 'gxp-addlayers-sourceselect',
+                items: [
+                    new Ext.Toolbar.TextItem({text: this.layerSelectionText}),
+                    sourceComboBox
+                ]
+            });
+            capGridToolbar = [container];
         }
         
         if (this.target.proxy) {
@@ -491,10 +578,21 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
                         cmp.ownerCt.hide();
                     }
                 },
-                "urlselected": function(newSourceDialog, url) {
+                "urlselected": function(newSourceDialog, url, type) {
                     newSourceDialog.setLoading();
+                    var ptype;
+                    switch (type) {
+                    	case 'TMS':
+                    		ptype = "gxp_tmssource";
+                    		break;
+                    	case 'REST':
+                    		ptype = 'gxp_arcrestsource';
+                    		break;
+                    	default:
+                    		ptype = 'gxp_wmscsource';
+                    }
                     this.target.addLayerSource({
-                        config: {url: url}, // assumes default of gx_wmssource
+                        config: {url: url, ptype: ptype},
                         callback: function(id) {
                             // add to combo and select
                             var record = new sources.recordType({
@@ -507,7 +605,7 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
                         },
                         fallback: function(source, msg) {
                             newSourceDialog.setError(
-                                new Ext.Template(this.addLayerSourceErrorText).apply({msg: msg})
+                                new Ext.Template(this.addLayerSourceErrorText).apply({type: type, msg: msg})
                             );
                         },
                         scope: this
@@ -725,19 +823,24 @@ gxp.plugins.AddLayers = Ext.extend(gxp.plugins.Tool, {
                             },
                             listeners: {
                                 uploadcomplete: function(panel, detail) {
-                                    var layers = detail["import"].tasks[0].items;
+                                    var layers = detail["import"].tasks;
                                     var item, names = {}, resource, layer;
                                     for (var i=0, len=layers.length; i<len; ++i) {
                                         item = layers[i];
                                         if (item.state === "ERROR") {
-                                            Ext.Msg.alert(item.originalName, item.errorMessage);
+                                            Ext.Msg.alert(item.layer.originalName, item.errorMessage);
                                             return;
                                         }
-                                        resource = item.resource;
-                                        layer = resource.featureType || resource.coverage;
-                                        names[layer.namespace.name + ":" + layer.name] = true;
+                                        var ws;
+                                        if (item.target.dataStore) {
+                                            ws = item.target.dataStore.workspace.name;
+                                        } else if (item.target.coverageStore) {
+                                            ws = item.target.coverageStore.workspace.name;
+                                        }
+                                        names[ws + ":" + item.layer.name] = true;
                                     }
                                     this.selectedSource.store.load({
+                                        params: {"_dc": Math.random()},
                                         callback: function(records, options, success) {
                                             var gridPanel, sel;
                                             if (this.capGrid && this.capGrid.isVisible()) {
