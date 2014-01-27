@@ -120,7 +120,7 @@ var app = new gxp.Viewer({
                 width: 340
             },
             actionTarget: "tree.tbar",
-            queryActionText: ""
+            queryActionText: "Buscar"
         },
 
         //------- map.tbar ---------
@@ -302,8 +302,8 @@ app.on("ready", function() {
     });
 
     treeTbar = Ext.getCmp('layer_tree').items.items[0].toolbars[0];
-    treeTbar.add(new Ext.Toolbar.Spacer({ width: 3 }));
-    treeTbar.add(new Ext.Toolbar.Separator({ width: 3 }));
+    //treeTbar.add(new Ext.Toolbar.Spacer({ width: 3 }));
+    //treeTbar.add(new Ext.Toolbar.Separator({ width: 3 }));
     treeTbar.add(btnMetadatos);
     treeTbar.doLayout();
 });
