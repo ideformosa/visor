@@ -60,8 +60,7 @@ var tree_groups = {
         title: "Vías de Comunicación"
     },
     "raster": {
-        title: "Capas Raster",
-        expanded: false
+        title: "Capas Raster"
     },
     "ign": {
         title: "Capas IGN (WMS)",
