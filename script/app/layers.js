@@ -67,6 +67,11 @@ var layers = [
         visibility:false
     }, {
         source: "dpv",
+        name: "dpv_aybal_rasterhd",
+        group: "raster",
+        visibility:false
+    }, {
+        source: "dpv",
         name: "dpv_pilco_rasterhd",
         group: "raster",
         visibility:false
@@ -76,7 +81,7 @@ var layers = [
         group: "raster",
         visibility:false
     },
-
+    
     //----- POLIGONOS
     {
         source: "dgct",
