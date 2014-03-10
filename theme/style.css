@@ -1,0 +1,11 @@
+/*.gxp-icon-zoombox {
+  background-image: url(magnifier_zoom.png);
+}*/
+
+.x-btn .gxp-icon-zoom, .x-tree-node .gxp-icon-zoom {
+    background-image: url(magnifier_zoom.png);
+}
+
+.x-btn .gxp-icon-pan, .x-tree-node .gxp-icon-pan {
+	background-image: url(hand.png);
+}
