@@ -205,11 +205,10 @@ var app = new gxp.Viewer({
             featureManager: "featuremanager",
             showTotalResults: true,
             //autoLoadFeature: false,
-            alwaysDisplayOnMap: false,
-            //displayMode: "selected",
+            //alwaysDisplayOnMap: true,
+            selectOnMap: true,
             outputConfig: {
-                id: "featuregrid",
-                loadMask: true
+                id: "featuregrid"
             },
             outputTarget: "south"
         }
@@ -302,10 +301,22 @@ app.on("ready", function() {
     });
 
     treeTbar = Ext.getCmp('layer_tree').items.items[0].toolbars[0];
-    //treeTbar.add(new Ext.Toolbar.Spacer({ width: 3 }));
-    //treeTbar.add(new Ext.Toolbar.Separator({ width: 3 }));
     treeTbar.add(btnMetadatos);
     treeTbar.doLayout();
+
+    fgrid = Ext.getCmp('featuregrid');
+    fgridBbar = fgrid.toolbars[0];
+    fgridBbar.add(
+        {
+            iconCls: "gxp-icon-zoom-to",
+            ref: "../zoomToPageButton",
+            text: "Zoom a resultados",
+            tooltip: "Acercar mapa a la extensión de los resultados",
+            handler: function() {
+                app.mapPanel.map.zoomToExtent(fgrid.store.layer.getDataExtent());
+            }
+        }
+    );
 });
 
 //});
