@@ -21,7 +21,8 @@ var layers = [
         name: "IGN:limite_politico_administrativo_lim",
         title: "IGN: Límite Político Administrativo",
         group: "background",
-        fixed: true
+        fixed: true,
+        visibility: false
     }, {
         source: "google",
         name: "ROADMAP",
@@ -203,7 +204,8 @@ var layers = [
     }, {
         source: "ign",
         name: "IGN:localidad",
-        group: "ign"
+        group: "ign",
+        visibility: false
     }, {
         source: "mdh",
         name: "prov_centrossalud",
