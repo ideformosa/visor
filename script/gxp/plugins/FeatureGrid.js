@@ -237,7 +237,7 @@ gxp.plugins.FeatureGrid = Ext.extend(gxp.plugins.ClickableFeatures, {
                 handler: function() {
                     featureManager.setPage({index: "last"});
                 }
-            }, {xtype: 'tbspacer', width: 10}, this.displayItem] : []).concat(["->"].concat(!this.alwaysDisplayOnMap ? [{
+            }, {xtype: 'tbspacer', width: 10}, this.displayItem] : []).concat([""].concat(!this.alwaysDisplayOnMap ? [{
                 text: this.displayFeatureText,
                 enableToggle: true,
                 toggleHandler: function(btn, pressed) {
