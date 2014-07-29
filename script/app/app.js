@@ -317,6 +317,8 @@ app.on("ready", function() {
             }
         }
     );
+
+    fgridBbar.items.items[1].toggle(); //boton Mostrar en mapa: on
 });
 
 //});
