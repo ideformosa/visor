@@ -120,7 +120,8 @@ var app = new gxp.Viewer({
                 width: 340
             },
             actionTarget: "tree.tbar",
-            queryActionText: "Buscar"
+            queryActionText: "Buscar",
+            queryByLocationText: "Buscar en la extensión actual del mapa"
         },
 
         //------- map.tbar ---------

@@ -232,7 +232,7 @@ GeoExt.Lang.add("es", {
     "gxp.FilterBuilder.prototype": {
         builderTypeNames: ["cualquiera de", "todas", "ninguna de", "no todas"],
         preComboText: "Cumplir",
-        postComboText: "las condiciones siguientes:",
+        postComboText: "estas condiciones:",
         addConditionText: "añadir condición",
         addGroupText: "añadir grupo",
         removeConditionText: "eliminar condición"
