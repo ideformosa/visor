@@ -28,7 +28,8 @@ var app = new gxp.Viewer({
             xtype: "panel",
             layout: "fit",
             region: "center",
-            items: ["mymap"]
+            items: ["mymap"],
+            title: "I D E F - Infraestructura de Datos Espaciales de Formosa"
         }, {
             id: "westcontainer",
             region: "west",
