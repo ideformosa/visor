@@ -186,7 +186,7 @@ var app = new gxp.Viewer({
             actions: ["->"],
             actionTarget: "map.tbar"
         }, {
-            actions:["<a href=\"http://idef.formosa.gob.ar/Contacto.html\" target=\"_blank\">Contáctenos...</a>"]
+            actions:["<a href=\"http://idef.formosa.gob.ar/?q=contact\" target=\"_blank\">Contáctenos...</a>"]
         }, {
             actions: ["-"],
             actionTarget: "map.tbar"
