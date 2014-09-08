@@ -137,6 +137,11 @@ var layers = [
     //-----  LINEAS
     {
         source: "dgct",
+        name: "prov_circunscripciones",
+        group: "cartografia",
+        visibility:false
+    }, {
+        source: "dgct",
         name: "cat_prov_manzanas",
         group: "cartografia",
         visibility:false
