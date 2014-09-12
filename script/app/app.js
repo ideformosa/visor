@@ -18,7 +18,7 @@ slider = new GeoExt.LayerOpacitySlider({
 
 var app = new gxp.Viewer({
 
-    proxy: "/visor/script/proxy.php?url=",
+    proxy: "/cgi-bin/proxy.cgi?url=",
 
 	portalConfig: {
 		layout: "border",
