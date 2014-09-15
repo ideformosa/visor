@@ -224,6 +224,13 @@ var app = new gxp.Viewer({
             xtype: "gxp_scaleoverlay"
     }],
 
+    mapPlugins: {
+        ptype:"gxp_loadingindicator",
+        onlyShowOnFirstLoad: true,
+        loadingMapMessage:"Cargando mapa..."
+    },
+    
+
 	defaultSourceType: "gxp_wmscsource",
 
     sources: sources,
