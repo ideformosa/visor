@@ -53,11 +53,6 @@ var layers = [
     //----- RASTER
     {
         source: "dgct",
-        name: "dgct_este_mosaicospot",
-        group: "raster",
-        visibility:false
-    }, {
-        source: "dgct",
         name: "dgct_prov_historicoparajes",
         group: "raster",
         visibility:false
