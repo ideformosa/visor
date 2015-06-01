@@ -18,7 +18,7 @@ var layers = [
         name: "mapnik"
     }, {
         source: "ign",
-        name: "IGN:limite_politico_administrativo_lim",
+        name: "ideign:LIMITE_POLITICO_ADMINISTRATIVO",
         title: "IGN: Límite Político Administrativo",
         group: "background",
         fixed: true,
@@ -159,12 +159,12 @@ var layers = [
         visibility:false
     },  {
         source: "ign",
-        name: "IGN:red_vial",
+        name: "ideign:red_vial",
         group: "ign",
         visibility:false
     }, {
         source: "ign",
-        name: "IGN:red_ferroviaria",
+        name: "ideign:RED_FERROVIARIA",
         group: "ign",
         visibility:false
     }, {
@@ -203,7 +203,7 @@ var layers = [
         visibility:false
     }, {
         source: "ign",
-        name: "IGN:localidad",
+        name: "ideign:localidades",
         group: "ign",
         visibility: false
     }, {
