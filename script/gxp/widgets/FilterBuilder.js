@@ -443,7 +443,7 @@ gxp.FilterBuilder = Ext.extend(Ext.Container, {
                 },
                 scope: this
             },
-            width: 100 // TODO: move to css
+            width: 60 // TODO: move to css
         };
     },
     

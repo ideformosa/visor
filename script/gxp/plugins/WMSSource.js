@@ -216,8 +216,12 @@ gxp.plugins.WMSSource = Ext.extend(gxp.plugins.LayerSource, {
      *  Reload the store when the authorization changes.
      */
     onAuthorizationChange: function() {
-        if (this.store && this.url.charAt(0) === "/") {
-            this.store.reload();
+        if (this.disabled !== true && this.store && this.url.charAt(0) === "/") {
+            var lastOptions = this.store.lastOptions || {params: {}};
+            Ext.apply(lastOptions.params, {
+                '_dc': Math.random()
+            });
+            this.store.reload(lastOptions);
         }
     },
 
@@ -520,12 +524,12 @@ gxp.plugins.WMSSource = Ext.extend(gxp.plugins.LayerSource, {
             }
             
             // update params from config
-            layer.mergeNewParams({
+            layer.mergeNewParams(Ext.applyIf({
                 STYLES: config.styles,
                 FORMAT: config.format,
                 TRANSPARENT: config.transparent,
                 CQL_FILTER: config.cql_filter
-            });
+            }, config.params));
             
             var singleTile = false;
             if ("tiled" in config) {
@@ -882,6 +886,10 @@ gxp.plugins.WMSSource = Ext.extend(gxp.plugins.LayerSource, {
             infoFormat: record.get("infoFormat"),
             attribution: layer.attribution
         });
+    },
+
+    disable: function() {
+        this.disabled = true;
     },
     
     /** private: method[getState] */

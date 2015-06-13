@@ -1,2 +1,8 @@
-
-.gx-popup-anc{background:transparent url(../images/default/anchor.png) no-repeat 0 0;position:absolute;left:5px;z-index:2;height:16px;width:31px;pointer-events:none;}.gx-popup-anc.top{background:transparent url(../images/default/anchor-top.png) no-repeat 0 0;top:-16px;}.gx-popup-anc.right{left:auto;right:5px;}.gx-ruledrag-insert-below{border-bottom:1px dotted;}.gx-ruledrag-insert-above{border-top:1px dotted;}.gx-grid-symbolizercol div{padding:0;}
+/**
+ * This file combines all default css files. It will be parsed by the build
+ * processor to generate a minified geoext-all.css file. Theme specific
+ * overrides go into gxtheme-<theme>.css
+ */
+@import "popup.css";
+@import "layerlegend.css";
+@import "symbolizercolumn.css";

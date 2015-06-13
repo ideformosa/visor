@@ -149,7 +149,7 @@ gxp.plugins.QueryForm = Ext.extend(gxp.plugins.Tool, {
                                 expandContainer.ownerCt.expand();
                             }
                         } else {
-                            //this.target.tools[this.featureManager].loadFeatures();
+                            this.target.tools[this.featureManager].loadFeatures();
                         }
                     }
                 },
