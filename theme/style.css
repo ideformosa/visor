@@ -9,3 +9,8 @@
 .x-btn .gxp-icon-pan, .x-tree-node .gxp-icon-pan {
 	background-image: url(hand.png);
 }
+
+div.map-overlay {
+	left: 10px;
+	right: initial;
+}
