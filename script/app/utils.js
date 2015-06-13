@@ -7,7 +7,7 @@ getOverviewControl = function() {
        "IGN",
        "http://wms.ign.gob.ar/geoserver/wms?",
        {
-         layers: "sig250:capabasesig250"
+         layers: "capabaseargenmap"
        },{
          singleTile: true
        }
