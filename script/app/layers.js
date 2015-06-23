@@ -53,7 +53,7 @@ var layers = [
     //----- RASTER
     {
         source: "dgct",
-        name: "dgct_prov_historicoparajes",
+        name: "0",
         group: "raster",
         visibility:false
     }, {
@@ -81,12 +81,27 @@ var layers = [
     //----- POLIGONOS
     {
         source: "dgct",
-        name: "dgct_prov_parurbanas",
+        name: "2",
         group: "cartografia",
         visibility:false
     },  {
         source: "dgct",
-        name: "dgct_prov_parrurales",
+        name: "3",
+        group: "cartografia",
+        visibility:false
+    }, {
+        source: "dgct",
+        name: "4",
+        group: "cartografia",
+        visibility:false
+    },  {
+        source: "dgct",
+        name: "5",
+        group: "cartografia",
+        visibility:false
+    }, {
+        source: "dgct",
+        name: "6",
         group: "cartografia",
         visibility:false
     }, {
@@ -131,16 +146,6 @@ var layers = [
 
     //-----  LINEAS
     {
-        source: "dgct",
-        name: "prov_circunscripciones",
-        group: "cartografia",
-        visibility:false
-    }, {
-        source: "dgct",
-        name: "cat_prov_manzanas",
-        group: "cartografia",
-        visibility:false
-    }, {
         source: "dpv",
         name: "dpv_prov_redterciaria",
         group: "viasdecom"
@@ -216,17 +221,7 @@ var layers = [
     //----- LABELS
     {
         source: "dgct",
-        name: "dgct_oeste_nombrescalles",
-        group: "cartografia",
-        visibility:false
-    }, {
-        source: "dgct",
-        name: "dgct_centro_nombrescalles",
-        group: "cartografia",
-        visibility:false
-    }, {
-        source: "dgct",
-        name: "dgct_este_nombrescalles",
+        name: "1",
         group: "cartografia",
         visibility:false
     }
