@@ -55,7 +55,8 @@ var layers = [
         source: "dgct",
         name: "0",
         group: "raster",
-        visibility:false
+        visibility:false,
+        tiled: false
     }, {
         source: "dpv",
         name: "dpv_prov_satelital",
@@ -83,27 +84,32 @@ var layers = [
         source: "dgct",
         name: "2",
         group: "cartografia",
-        visibility:false
+        visibility:false,
+        tiled: false
     },  {
         source: "dgct",
         name: "3",
         group: "cartografia",
-        visibility:false
+        visibility:false,
+        tiled: false
     }, {
         source: "dgct",
         name: "4",
         group: "cartografia",
-        visibility:false
+        visibility:false,
+        tiled: false
     },  {
         source: "dgct",
         name: "5",
         group: "cartografia",
-        visibility:false
+        visibility:false,
+        tiled: false
     }, {
         source: "dgct",
         name: "6",
         group: "cartografia",
-        visibility:false
+        visibility:false,
+        tiled: false
     }, {
         source: "dec",
         name: "dec_prov_censo2010",
@@ -223,6 +229,7 @@ var layers = [
         source: "dgct",
         name: "1",
         group: "cartografia",
-        visibility:false
+        visibility:false,
+        tiled: false
     }
 ];
