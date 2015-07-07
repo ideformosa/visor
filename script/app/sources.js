@@ -6,7 +6,7 @@ var sources = {
         version:"1.1.1"
     },
     dgct: {
-        url: "http://idef.formosa.gob.ar/servicios/dgct/wms?",
+        url: "http://sit.formosa.gob.ar/WMSServer?",
         title: "Dirección General del Catastro Territorial",
         version:"1.1.1"
     },
