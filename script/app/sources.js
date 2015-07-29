@@ -1,5 +1,4 @@
 var sources = {
-
     dec: {
         url:"http://idef.formosa.gob.ar/servicios/dec/wms?",
         title:"Dirección de Estadística y Censo",
@@ -35,25 +34,29 @@ var sources = {
         title:"Unidad Provincial Coordinadora del Agua",
         version:"1.1.1"
     },
-
     ign: {
         url:"ogc/ign.xml",
         title:"Instituto Geográfico Nacional",
         version:"1.1.1"
     },
-
     ol: {
         ptype: "gxp_olsource"
     },
-    
     google: {
         ptype: "gxp_googlesource"
     },
-
     osm: {
         ptype: "gxp_osmsource"
+    },
+    bing: {
+        ptype: "gxp_bingsource"
+    },
+    mapquest: {
+        ptype: "gxp_mapquestsource"
+    },
+    mapbox: {
+        ptype: "gxp_mapboxsource"
     }
-
     /*,
     csw: {
         ptype: "gxp_cataloguesource",

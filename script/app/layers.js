@@ -14,41 +14,65 @@ var layers = [
 
     //------- Capas base
     {
-        source: "osm",
-        name: "mapnik"
-    }, {
         source: "ign",
         name: "ideign:LIMITE_POLITICO_ADMINISTRATIVO",
         title: "IGN: Límite Político Administrativo",
         group: "background",
+        fixed: true
+    }, {
+        source: "bing",
+        name: "AerialWithLabels"
+    }, {
+        source: "bing",
+        name: "Aerial"
+    }, {
+        source: "ol",
+        group: "background",
         fixed: true,
-        visibility: false
+        type: "OpenLayers.Layer.XYZ",
+        args: [
+            "CartoDB Dark Matter", 
+            "http://a.basemaps.cartocdn.com/dark_all/${z}/${x}/${y}.png",
+             {attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'}
+        ]
+    }, {
+        source: "ol",
+        group: "background",
+        fixed: true,
+        type: "OpenLayers.Layer.XYZ",
+        args: [
+            "CartoDB Positron", 
+            "http://a.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
+            {attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'}
+        ]
     }, {
         source: "google",
         name: "ROADMAP",
-        title: "Google Streets",
-        group: "background",
-        visibility: false
+        group: "background"
     }, {
         source: "google",
         name: "HYBRID",
-        title: "Google Hybrid",
-        group: "background",
-        visibility: false
+        group: "background"
     }, {
         source: "google",
         name: "SATELLITE",
-        title: "Google Satellite",
         group: "background",
-        MAX_ZOOM_LEVEL: 21,
+        MAX_ZOOM_LEVEL: 21
+    }, {
+        source: "mapquest",
+        name: "osm"
+    }, {
+        source: "osm",
+        name: "mapnik",
         visibility: false
     }, {
         source: "ol",
         group: "background",
         fixed: true,
         type: "OpenLayers.Layer",
-        args: ["En blanco", { visibility: false }]
-    },
+        args: ["En blanco"],
+        visibility: false
+    }, 
 
     //----- RASTER
     {
@@ -149,7 +173,6 @@ var layers = [
         title:"Delegaciones Zonales",
         visibility:false
     },
-
     //-----  LINEAS
     {
         source: "dpv",
@@ -194,7 +217,6 @@ var layers = [
         group: "hidrografia",
         visibility:false
     },
-
     //----- PUNTOS
     {
         source: "mce",
@@ -223,7 +245,6 @@ var layers = [
         group: "salud",
         visibility:false
     },
-
     //----- LABELS
     {
         source: "dgct",
