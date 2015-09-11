@@ -125,6 +125,7 @@ var app = new gxp.Viewer({
             },
             actionTarget: "tree.tbar",
             queryActionText: "Buscar",
+            queryActionTip: "Busque datos dentro de los atributos de la capa.",
             queryByLocationText: "Buscar en la extensión actual del mapa"
         },
 
@@ -256,7 +257,7 @@ var app = new gxp.Viewer({
     
 btnMetadatos = new Ext.Button({
     text: 'Metadatos',
-    tooltip: 'Acceso a metadatos de la capa',
+    tooltip: 'Vea más información acerca de la capa seleccionada (fechas, responsable, info. de contacto, escalas, SRS, etc.)',
     icon: './theme/info-new-window.png',
     disabled: true,
     handler: function(baseItem, e){
