@@ -102,7 +102,10 @@ var app = new gxp.Viewer({
         {
             ptype: "gxp_addlayers",
             //addActionText: "Más...",
-            actionTarget: "tree.tbar"
+            actionTarget: "tree.tbar",
+            search: { selectedSource: "csw" },
+            findActionMenuText: "Buscar Capas...",
+            searchText: "Buscar capas en el Catálogo"
         }, {
             ptype: "gxp_removelayer",
             actionTarget: ["tree.tbar", "tree.contextMenu"]

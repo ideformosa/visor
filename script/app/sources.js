@@ -56,11 +56,10 @@ var sources = {
     },
     mapbox: {
         ptype: "gxp_mapboxsource"
-    }
-    /*,
+    },
     csw: {
         ptype: "gxp_cataloguesource",
-        url: "http://idef.formosa.gob.ar/metadatos/srv/es/csw?SERVICE=CSW&REQUEST=GetCapabilities",
-        title: "Catalogo"
-    }*/
+        url: "http://idef.formosa.gob.ar/metadatos/srv/es/csw",
+        title: "Catálogo"
+    }
 };
