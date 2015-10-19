@@ -20,12 +20,6 @@ var layers = [
         group: "background",
         fixed: true
     }, {
-        source: "bing",
-        name: "AerialWithLabels"
-    }, {
-        source: "bing",
-        name: "Aerial"
-    }, {
         source: "ol",
         group: "background",
         fixed: true,

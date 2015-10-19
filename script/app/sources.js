@@ -48,9 +48,6 @@ var sources = {
     osm: {
         ptype: "gxp_osmsource"
     },
-    bing: {
-        ptype: "gxp_bingsource"
-    },
     mapquest: {
         ptype: "gxp_mapquestsource"
     },
