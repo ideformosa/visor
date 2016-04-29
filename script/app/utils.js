@@ -1,63 +1,42 @@
-//
-// Devuelve el control OverviewMap
-//
-getOverviewControl = function() {
-    
-    capaOverview = new OpenLayers.Layer.WMS(
-       "IGN",
-       "http://wms.ign.gob.ar/geoserver/wms?",
-       {
-         layers: "capabaseargenmap"
-       },{
-         singleTile: true
-       }
-    );
+var idef = idef || {};
 
-    mapOptions = {
-        projection: new OpenLayers.Projection("EPSG:3857")
-    };
+idef.utils = (function() {
+  'use strict';
 
-    controlOptions = {
-        mapOptions: mapOptions,
-        maximizeTitle: 'Mostrar mapa de referencia',
-        minimizeTitle: 'Ocultar mapa de referencia',
-        layers: [capaOverview]
-    };
+  /*
+  * Decimal to DMS conversion
+  */
+  function convertDDtoDMS(coordinate) {
+    var absCoord, coordDegrees, coordMinutes, tempCoordMinutes, coordSeconds,
+      coords;
 
-    overview = new OpenLayers.Control.OverviewMap(controlOptions);
-    
-    return overview;
-};
+    absCoord = Math.abs(coordinate);
+    coordDegrees = Math.floor(absCoord);
+    coordMinutes = (absCoord - coordDegrees)/(1/60);
+    tempCoordMinutes = coordMinutes;
+    coordMinutes = Math.floor(coordMinutes);
+    coordSeconds = (tempCoordMinutes - coordMinutes)/(1/60);
+    coordSeconds =  Math.round(coordSeconds*10);
+    coordSeconds /= 10;
+    coordSeconds = Math.floor(coordSeconds);
 
-/*
-* Decimal to DMS conversion
-*/
-convertDMS = function(coordinate) {
-  var coords;
+    if( coordDegrees < 10 )
+      coordDegrees = "0" + coordDegrees;
 
-  abscoordinate = Math.abs(coordinate);
-  coordinatedegrees = Math.floor(abscoordinate);
+    if( coordMinutes < 10 )
+      coordMinutes = "0" + coordMinutes;
 
-  coordinateminutes = (abscoordinate - coordinatedegrees)/(1/60);
-  tempcoordinateminutes = coordinateminutes;
-  coordinateminutes = Math.floor(coordinateminutes);
-  coordinateseconds = (tempcoordinateminutes - coordinateminutes)/(1/60);
-  coordinateseconds =  Math.round(coordinateseconds*10);
-  coordinateseconds /= 10;
-  coordinateseconds = Math.floor(coordinateseconds);
+    if( coordSeconds < 10 )
+      coordSeconds = "0" + coordSeconds;
 
-  if( coordinatedegrees < 10 )
-    coordinatedegrees = "0" + coordinatedegrees;
+    coords = (coordinate < 0 ? "-" : "") + coordDegrees + "º";
+    coords += coordMinutes + "'";
+    coords += coordSeconds + "''";
 
-  if( coordinateminutes < 10 )
-    coordinateminutes = "0" + coordinateminutes;
+    return coords;
+  }
 
-  if( coordinateseconds < 10 )
-    coordinateseconds = "0" + coordinateseconds;
-
-  coords = (coordinate < 0 ? "-" : "") + coordinatedegrees + "º";
-  coords += coordinateminutes + "'";
-  coords += coordinateseconds + "''";
-
-  return coords;
-};
+  return {
+    dd2dms: convertDDtoDMS
+  }
+}());
