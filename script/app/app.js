@@ -268,11 +268,11 @@ idef.visor = (function () {
     var map = _app.mapPanel.map;
 
     // capa para minimap
-    capaOverview = new OpenLayers.Layer.WMS(
-       "IGN",
-       "http://wms.ign.gob.ar/geoserver/wms?",
-       { layers: "capabaseargenmap" },
-       { singleTile: true }
+    capaOverview = new OpenLayers.Layer.OSM(
+      "OSM",
+      ["http://a.tile.openstreetmap.org/${z}/${x}/${y}.png",
+      "http://b.tile.openstreetmap.org/${z}/${x}/${y}.png",
+      "http://c.tile.openstreetmap.org/${z}/${x}/${y}.png"]
     );
 
     // minimap
