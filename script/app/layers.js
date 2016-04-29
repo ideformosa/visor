@@ -9,66 +9,70 @@ Valid config options for all layer sources:
     fixed: Boolean - Set to true to prevent the layer from being removed by a gxp.plugins.RemoveLayer tool and from being dragged in a gxp.plugins.LayerTree
     selected: Boolean - Set to true to mark the layer selected
 */
-
 var layers = [
-
     //------- Capas base
     {
-        source: "ign",
-        name: "ideign:LIMITE_POLITICO_ADMINISTRATIVO",
-        title: "IGN: Límite Político Administrativo",
         group: "background",
-        fixed: true
-    }, {
         source: "ol",
-        group: "background",
-        fixed: true,
         type: "OpenLayers.Layer.XYZ",
         args: [
-            "CartoDB Dark Matter", 
-            "http://a.basemaps.cartocdn.com/dark_all/${z}/${x}/${y}.png",
-             {attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'}
-        ],
-        visibility: false
-    }, {
-        source: "ol",
-        group: "background",
-        fixed: true,
-        type: "OpenLayers.Layer.XYZ",
-        args: [
-            "CartoDB Positron", 
+            "CartoDB Positron",
             "http://a.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
             {attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'}
         ],
+        fixed: true
+    }, {
+        group: "background",
+        source: "ol",
+        type: "OpenLayers.Layer.XYZ",
+        args: [
+            "CartoDB Dark Matter",
+            "http://a.basemaps.cartocdn.com/dark_all/${z}/${x}/${y}.png",
+             {attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'}
+        ],
+        fixed: true,
         visibility: false
     }, {
+        group: "background",
         source: "google",
         name: "ROADMAP",
-        group: "background"
+        visibility: false
     }, {
+        group: "background",
         source: "google",
         name: "HYBRID",
-        group: "background"
+        visibility: false
     }, {
+        group: "background",
         source: "google",
         name: "SATELLITE",
+        MAX_ZOOM_LEVEL: 21,
+        visibility: false
+    }, {
         group: "background",
-        MAX_ZOOM_LEVEL: 21
-    }, {
         source: "mapquest",
-        name: "osm"
+        name: "osm",
+        visibility: false
     }, {
+        group: "background",
         source: "osm",
         name: "mapnik",
         visibility: false
     }, {
-        source: "ol",
         group: "background",
+        source: "ign",
+        name: "ideign:LIMITE_POLITICO_ADMINISTRATIVO",
+        title: "IGN: Límite Político Administrativo",
         fixed: true,
-        type: "OpenLayers.Layer",
-        args: ["En blanco"],
         visibility: false
-    }, 
+    }, {
+        group: "background",
+        source: "ol",
+        type: "OpenLayers.Layer",
+        args: [ "En blanco" ],
+        fixed: true,
+        visibility: false
+    },
 
     //----- RASTER
     {
@@ -98,7 +102,6 @@ var layers = [
         group: "raster",
         visibility:false
     },
-    
     //----- POLIGONOS
     {
         source: "dgct",
