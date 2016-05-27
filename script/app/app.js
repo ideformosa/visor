@@ -253,8 +253,8 @@ idef.visor = (function () {
         projection: "EPSG:3857",
         //units: "degrees",
         //center: [-60, -24.7],
-        center: [-6697106, -2838855],
-        zoom: 8,
+        center: [-6697106, -2862855],
+        zoom: 7,
         numZoomLevels: 20, //Para coincidir con los niveles de capas de Google
         zoomDuration: 10, //To match Google’s zoom animation
         layers: layers  // layers.js
