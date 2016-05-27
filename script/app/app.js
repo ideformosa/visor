@@ -11,6 +11,13 @@ idef.visor = (function () {
   'use strict';
 
   var _app;
+  // capa para minimap
+  var osmLayer = new OpenLayers.Layer.OSM(
+    "OSM",
+    ["http://a.tile.openstreetmap.org/${z}/${x}/${y}.png",
+    "http://b.tile.openstreetmap.org/${z}/${x}/${y}.png",
+    "http://c.tile.openstreetmap.org/${z}/${x}/${y}.png"]
+  );
 
   function init() {
     initApp();
@@ -257,58 +264,44 @@ idef.visor = (function () {
         zoom: 7,
         numZoomLevels: 20, //Para coincidir con los niveles de capas de Google
         zoomDuration: 10, //To match Google’s zoom animation
-        layers: layers  // layers.js
+        layers: layers,  // layers.js
+        controls: [
+          new OpenLayers.Control.Navigation({
+            zoomWheelOptions: {interval: 250},
+            dragPanOptions: {enableKinetic: true}
+          }),
+          new OpenLayers.Control.PanPanel(),
+          new OpenLayers.Control.ZoomPanel(),
+          new OpenLayers.Control.Attribution(),
+          new OpenLayers.Control.Permalink(),
+          new OpenLayers.Control.MousePosition({
+            displayProjection: new OpenLayers.Projection("EPSG:4326"),
+            formatOutput: function (lonLat) {
+              var prefix = '<a target="_blank" ' +
+                'href="http://spatialreference.org/ref/sr-org/7483/">' +
+                'EPSG:3857</a> | ';
+
+              return prefix +
+                OpenLayers.Util.getFormattedLonLat(lonLat.lon,'lon') + ',' +
+                OpenLayers.Util.getFormattedLonLat(lonLat.lat);
+            }
+          }),
+          new OpenLayers.Control.OverviewMap({
+            mapOptions: { projection: new OpenLayers.Projection("EPSG:3857") },
+            maximizeTitle: 'Mostrar mapa de referencia',
+            minimizeTitle: 'Ocultar mapa de referencia',
+            layers: [ osmLayer ]
+          })
+        ]
       }
     });
   }
 
   // agrega controles que no incorpora gxp
   function _addExtraControls() {
-    var capaOverview, overview, mousePosition;
-    var map = _app.mapPanel.map;
-
-    // capa para minimap
-    capaOverview = new OpenLayers.Layer.OSM(
-      "OSM",
-      ["http://a.tile.openstreetmap.org/${z}/${x}/${y}.png",
-      "http://b.tile.openstreetmap.org/${z}/${x}/${y}.png",
-      "http://c.tile.openstreetmap.org/${z}/${x}/${y}.png"]
-    );
-
-    // minimap
-    overview = new OpenLayers.Control.OverviewMap({
-      mapOptions: { projection: new OpenLayers.Projection("EPSG:3857") },
-      maximizeTitle: 'Mostrar mapa de referencia',
-      minimizeTitle: 'Ocultar mapa de referencia',
-      layers: [ capaOverview ]
-    });
-
-    // coordenadas en el mapa
-    mousePosition = new OpenLayers.Control.MousePosition({
-      formatOutput: function (lonLat) {
-        var markup, point;
-
-        markup = '<a target="_blank" ' +
-          'href="http://spatialreference.org/ref/sr-org/7483/">' +
-          'EPSG:3857</a> | ';
-
-        point = lonLat.transform(new OpenLayers.Projection("EPSG:3857"),
-          new OpenLayers.Projection("EPSG:4326"));
-
-        markup += idef.utils.dd2dms(point.lat) + "," +
-          idef.utils.dd2dms(point.lon);
-
-        return markup;
-      }
-    });
-
-    // agregar controles al mapa
-    map.addControl(overview);
-    map.addControl(mousePosition);
-    map.addControl(new OpenLayers.Control.Permalink());
-
     _app.on("ready", function() {
       var treeTbar, fgridBbar;
+      var map = _app.mapPanel.map;
 
       treeTbar = Ext.getCmp('tree').getTopToolbar();
       treeTbar.addButton({
