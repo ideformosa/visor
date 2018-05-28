@@ -119,13 +119,11 @@ var layers = [
         source: "dgct",
         name: "4",
         group: "cartografia",
-        visibility:false,
         tiled: false
     },  {
         source: "dgct",
         name: "5",
         group: "cartografia",
-        visibility:false,
         tiled: false
     }, {
         source: "dgct",
@@ -244,7 +242,6 @@ var layers = [
         source: "dgct",
         name: "1",
         group: "cartografia",
-        visibility:false,
         tiled: false
     }
 ];
