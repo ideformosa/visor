@@ -1,0 +1,35 @@
+{
+  "name": "idef-visor",
+  "version": "1.20.0",
+  "description": "Visor IDE Formosa",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ideformosa/visor.git"
+  },
+  "keywords": [
+    "idef",
+    "ide",
+    "formosa",
+    "visor",
+    "visualizador",
+    "capas",
+    "layers"
+  ],
+  "author": "Equipo IDE Formosa",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ideformosa/visor/issues"
+  },
+  "homepage": "https://github.com/ideformosa/visor#readme",
+  "devDependencies": {
+    "cors-anywhere": "^0.4.1",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
