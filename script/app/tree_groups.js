@@ -36,6 +36,10 @@ var tree_groups = {
         title: "Cartografía Catastral",
         expanded: false
     },
+    "comunicacion": {
+        title: "Comunicación",
+        expanded: false
+    },
     "educacion": {
         title: "Educación",
         expanded: false

@@ -34,6 +34,11 @@ var sources = {
         title:"Unidad Provincial Coordinadora del Agua",
         version:"1.1.1"
     },
+    upsti: {
+        url:"http://idef.formosa.gob.ar/servicios/upsti/wms?",
+        title:"Unidad Provincial de Sistemas y Tecnologías de Información",
+        version:"1.1.1"
+    },
     ign: {
         url:"ogc/ign.xml",
         title:"Instituto Geográfico Nacional",

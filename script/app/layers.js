@@ -213,6 +213,11 @@ var layers = [
         name: "upca_prov_riosppales",
         group: "hidrografia",
         visibility:false
+    }, {
+        source: "upsti",
+        name: "tendido-fibra",
+        group: "comunicacion",
+        visibility:false
     },
     //----- PUNTOS
     {
@@ -236,6 +241,11 @@ var layers = [
         name: "ideign:localidades",
         group: "ign",
         visibility: false
+    },  {
+        source: "upsti",
+        name: "puntos-conectados",
+        group: "comunicacion",
+        visibility:false
     },
     //----- LABELS
     {
