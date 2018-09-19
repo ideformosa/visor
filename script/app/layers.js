@@ -119,11 +119,13 @@ var layers = [
         source: "dgct",
         name: "4",
         group: "cartografia",
+        visibility:false,
         tiled: false
     },  {
         source: "dgct",
         name: "5",
         group: "cartografia",
+        visibility:false,
         tiled: false
     }, {
         source: "dgct",
@@ -165,7 +167,7 @@ var layers = [
         visibility:false
     }, {
         source: "mce",
-        name: "mce_prov_delzonales",
+        name: "mce_delzonales",
         group: "educacion",
         title:"Delegaciones Zonales",
         visibility:false
@@ -174,7 +176,9 @@ var layers = [
     {
         source: "dpv",
         name: "dpv_prov_redterciaria",
-        group: "viasdecom"
+        group: "viasdecom",
+        visibility:false
+
     }, {
         source: "dpv",
         name: "dpv_prov_rutasprov",
@@ -222,9 +226,45 @@ var layers = [
     //----- PUNTOS
     {
         source: "mce",
-        name: "mce_prov_escuelas",
+        name: "mce_fp",
         group: "educacion",
-        title:"Unidades Educativas (sujeto a revisión)",
+        // title:"Unidades Educativas (sujeto a revisión)",
+        visibility:false
+    }, {
+        source: "mce",
+        name: "mce_permanente",
+        group: "educacion",
+        // title:"Unidades Educativas (sujeto a revisión)",
+        visibility:false
+    }, {
+        source: "mce",
+        name: "mce_especial",
+        group: "educacion",
+        // title:"Unidades Educativas (sujeto a revisión)",
+        visibility:false
+    }, {
+        source: "mce",
+        name: "mce_superior",
+        group: "educacion",
+        // title:"Unidades Educativas (sujeto a revisión)",
+        visibility:false
+    }, {
+        source: "mce",
+        name: "mce_secundario",
+        group: "educacion",
+        // title:"Unidades Educativas (sujeto a revisión)",
+        visibility:false
+    }, {
+        source: "mce",
+        name: "mce_primario",
+        group: "educacion",
+        // title:"Unidades Educativas (sujeto a revisión)",
+        visibility:false
+    }, {
+        source: "mce",
+        name: "mce_inicial",
+        group: "educacion",
+        // title:"Unidades Educativas (sujeto a revisión)",
         visibility:false
     }, {
         source: "upca",
@@ -252,6 +292,7 @@ var layers = [
         source: "dgct",
         name: "1",
         group: "cartografia",
-        tiled: false
+        tiled: false,
+        visibility:false
     }
 ];

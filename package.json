@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/ideformosa/visor#readme",
   "devDependencies": {
+    "ant": "^0.2.0",
     "cors-anywhere": "^0.4.1",
     "webpack": "^4.9.1",
     "webpack-cli": "^2.1.4",
