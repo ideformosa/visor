@@ -28,7 +28,10 @@ idef.visor = (function () {
   function initApp() {
     _app = new gxp.Viewer({
 
+      // PROD
       proxy: "/cgi-bin/proxy.cgi?url=",
+      // DEV
+      // proxy: "http://localhost:8080/",
 
       portalConfig: {
         layout: "border",
@@ -44,7 +47,7 @@ idef.visor = (function () {
           region: "west",
           xtype: "panel",
           layout: "accordion",
-          width: 275,
+          width: 300,
           //border: false,
           split: true,
           collapsible: true,
