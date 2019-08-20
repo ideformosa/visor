@@ -107,7 +107,8 @@ var layers = [
   //----- RASTER
   {
     source: "dgct",
-    name: "0",
+    name: "HistoricoParajes",
+    title: "Histórico Parajes",
     group: "raster",
     visibility: false,
     tiled: false
@@ -139,35 +140,38 @@ var layers = [
   //----- POLIGONOS
   {
     source: "dgct",
-    name: "2",
+    name: "ParcelasRurales",
+    title: "Parcelas Rurales",
     group: "cartografia",
     visibility: false,
     tiled: false
   },
   {
     source: "dgct",
-    name: "3",
+    name: "ParcelasUrbanas",
+    title: "Parcelas Urbanas",
     group: "cartografia",
     visibility: false,
     tiled: false
   },
   {
     source: "dgct",
-    name: "4",
+    name: "Circunscripciones",
     group: "cartografia",
     visibility: false,
     tiled: false
   },
   {
     source: "dgct",
-    name: "5",
+    name: "Ejidos",
+    title: "Ejidos Municipales",
     group: "cartografia",
     visibility: false,
     tiled: false
   },
   {
     source: "dgct",
-    name: "6",
+    name: "Manzanas",
     group: "cartografia",
     visibility: false,
     tiled: false
@@ -353,7 +357,7 @@ var layers = [
   //----- LABELS
   {
     source: "dgct",
-    name: "1",
+    name: "Calles",
     group: "cartografia",
     tiled: false,
     visibility: false
