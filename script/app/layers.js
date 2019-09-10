@@ -178,39 +178,39 @@ var layers = [
   },
   {
     source: "dec",
-    name: "dec_prov_censo2010",
+    name: "censo2010_xradio",
     group: "estadistica",
     title: "Censo 2010 por Radio censal (sujeto a revisión)",
     visibility: false
   },
   {
     source: "dec",
-    name: "dec_prov_censo2010xdpto",
+    name: "censo2010xdpto",
     group: "estadistica",
     title: "Censo 2010 por Dpto. (sujeto a revisión)",
     visibility: false
   },
   {
     source: "mpa",
-    name: "prov_reservas",
+    name: "reservas",
     group: "reservas",
     visibility: false
   },
   {
     source: "upca",
-    name: "upca_prov_cuencashid",
+    name: "cuencas_hidricas",
     group: "hidrografia",
     visibility: false
   },
   {
     source: "upca",
-    name: "upca_prov_lagembestbania",
+    name: "lagu_embal_est_baniado",
     group: "hidrografia",
     visibility: false
   },
   {
     source: "upca",
-    name: "upca_prov_sistbanialaest",
+    name: "sist_baniado_estrella",
     group: "hidrografia",
     visibility: false
   },
@@ -258,19 +258,19 @@ var layers = [
   },
   {
     source: "upca",
-    name: "upca_prov_canalcorred",
+    name: "canales_correderas",
     group: "hidrografia",
     visibility: false
   },
   {
     source: "upca",
-    name: "upca_prov_riacharroy",
+    name: "riachos_arroyos",
     group: "hidrografia",
     visibility: false
   },
   {
     source: "upca",
-    name: "upca_prov_riosppales",
+    name: "rios_principales",
     group: "hidrografia",
     visibility: false
   },
@@ -332,13 +332,13 @@ var layers = [
   },
   {
     source: "upca",
-    name: "upca_prov_redhidrom",
+    name: "red_hidrometrica",
     group: "hidrografia",
     visibility: false
   },
   {
     source: "upca",
-    name: "upca_prov_redpluviom",
+    name: "red_pluviometrica",
     group: "hidrografia",
     visibility: false
   },
