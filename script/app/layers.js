@@ -185,7 +185,7 @@ var layers = [
   },
   {
     source: "dec",
-    name: "censo2010xdpto",
+    name: "censo2010_xdpto",
     group: "estadistica",
     title: "Censo 2010 por Dpto. (sujeto a revisión)",
     visibility: false
