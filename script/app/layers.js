@@ -90,8 +90,8 @@ var layers = [
   {
     group: "background",
     source: "ign",
-    name: "ideign:LIMITE_POLITICO_ADMINISTRATIVO",
-    title: "IGN: Límite Político Administrativo",
+    name: "ign:departamento",
+    title: "IGN: Departamentos",
     fixed: true,
     visibility: false
   },
@@ -246,13 +246,7 @@ var layers = [
   },
   {
     source: "ign",
-    name: "ideign:red_vial",
-    group: "ign",
-    visibility: false
-  },
-  {
-    source: "ign",
-    name: "ideign:RED_FERROVIARIA",
+    name: "ign:lineas_de_transporte_ferroviario_AN010",
     group: "ign",
     visibility: false
   },
@@ -344,8 +338,9 @@ var layers = [
   },
   {
     source: "ign",
-    name: "ideign:localidades",
+    name: "ign:puntos_de_asentamientos_y_edificios_localidad",
     group: "ign",
+    title: "Localidades",
     visibility: false
   },
   {
