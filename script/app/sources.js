@@ -5,7 +5,7 @@ var sources = {
         version:"1.1.1"
     },
     dgct: {
-        url: "https://sit.formosa.gob.ar/WMSServer?",
+        url: "http://idef.formosa.gob.ar/proxy/https://sit.formosa.gob.ar/WMSServer?",
         title: "Dirección General del Catastro Territorial",
         version:"1.1.1"
     },
@@ -40,7 +40,7 @@ var sources = {
         version:"1.1.1"
     },
     ign: {
-        url:"https://wms.ign.gob.ar/geoserver/wms?",
+        url:"http://idef.formosa.gob.ar/proxy/https://wms.ign.gob.ar/geoserver/wms?",
         title:"Instituto Geográfico Nacional",
         version:"1.1.1"
     },
