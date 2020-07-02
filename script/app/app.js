@@ -29,7 +29,7 @@ idef.visor = (function () {
     _app = new gxp.Viewer({
 
       // PROD
-      proxy: "/cgi-bin/proxy.cgi?url=",
+      proxy: "/proxy/",
       // DEV
       // proxy: "http://localhost:8080/",
 
