@@ -38,43 +38,43 @@ var layers = [
     ],
     visibility: false
   },
-  {
-    group: "background",
-    source: "ol",
-    type: "OpenLayers.Layer.XYZ",
-    args: [
-      "Google Roadmap",
-      "https://mt0.google.com/vt/lyrs=r&x=${x}&y=${y}&z=${z}",
-      {
-        attribution: "Powered by Google"
-      }
-    ],
-    visibility: false
-  },
-  {
-    group: "background",
-    source: "ol",
-    type: "OpenLayers.Layer.XYZ",
-    args: [
-      "Google Hybrid",
-      "https://mt1.google.com/vt/lyrs=y&x=${x}&y=${y}&z=${z}",
-      {
-        attribution: "Powered by Google"
-      }
-    ],
-    visibility: false
-  },
-  {
-    group: "background",
-    source: "ol",
-    type: "OpenLayers.Layer.XYZ",
-    args: [
-      "Google Satellite",
-      "https://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x=${x}&y=${y}&z=${z}",
-      { attribution: "Powered by Google" }
-    ],
-    visibility: false
-  },
+  // {
+  //   group: "background",
+  //   source: "ol",
+  //   type: "OpenLayers.Layer.XYZ",
+  //   args: [
+  //     "Google Roadmap",
+  //     "https://mt0.google.com/vt/lyrs=r&x=${x}&y=${y}&z=${z}",
+  //     {
+  //       attribution: "Powered by Google"
+  //     }
+  //   ],
+  //   visibility: false
+  // },
+  // {
+  //   group: "background",
+  //   source: "ol",
+  //   type: "OpenLayers.Layer.XYZ",
+  //   args: [
+  //     "Google Hybrid",
+  //     "https://mt1.google.com/vt/lyrs=y&x=${x}&y=${y}&z=${z}",
+  //     {
+  //       attribution: "Powered by Google"
+  //     }
+  //   ],
+  //   visibility: false
+  // },
+  // {
+  //   group: "background",
+  //   source: "ol",
+  //   type: "OpenLayers.Layer.XYZ",
+  //   args: [
+  //     "Google Satellite",
+  //     "https://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x=${x}&y=${y}&z=${z}",
+  //     { attribution: "Powered by Google" }
+  //   ],
+  //   visibility: false
+  // },
   // {
   //   group: "background",
   //   source: "mapquest",
