@@ -12,12 +12,12 @@ Valid config options for all layer sources:
 var layers = [
   //------- Capas base
   {
-    group: "background",
-    source: "ol",
-    type: "OpenLayers.Layer.XYZ",
+    group: 'background',
+    source: 'ol',
+    type: 'OpenLayers.Layer.XYZ',
     args: [
-      "CartoDB Positron",
-      "http://a.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png",
+      'CartoDB Positron',
+      'http://a.basemaps.cartocdn.com/light_all/${z}/${x}/${y}.png',
       {
         attribution:
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
@@ -25,12 +25,12 @@ var layers = [
     ]
   },
   {
-    group: "background",
-    source: "ol",
-    type: "OpenLayers.Layer.XYZ",
+    group: 'background',
+    source: 'ol',
+    type: 'OpenLayers.Layer.XYZ',
     args: [
-      "CartoDB Dark Matter",
-      "http://a.basemaps.cartocdn.com/dark_all/${z}/${x}/${y}.png",
+      'CartoDB Dark Matter',
+      'http://a.basemaps.cartocdn.com/dark_all/${z}/${x}/${y}.png',
       {
         attribution:
           '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
@@ -82,278 +82,285 @@ var layers = [
   //   visibility: false
   // },
   {
-    group: "background",
-    source: "osm",
-    name: "mapnik",
+    group: 'background',
+    source: 'osm',
+    name: 'mapnik',
     visibility: false
   },
   {
-    group: "background",
-    source: "ign",
-    name: "ign:departamento",
-    title: "IGN: Departamentos",
+    group: 'background',
+    source: 'ign',
+    name: 'ign:departamento',
+    title: 'IGN: Departamentos',
     fixed: true,
     visibility: false
   },
   {
-    group: "background",
-    source: "ol",
-    type: "OpenLayers.Layer",
-    args: ["En blanco"],
+    group: 'background',
+    source: 'ol',
+    type: 'OpenLayers.Layer',
+    args: ['En blanco'],
     fixed: true,
     visibility: false
   },
 
   //----- RASTER
   {
-    source: "dgct",
-    name: "HistoricoParajes",
-    title: "Histórico Parajes",
-    group: "raster",
+    source: 'dgct',
+    name: 'HistoricoParajes',
+    title: 'Histórico Parajes',
+    group: 'raster',
     visibility: false,
     tiled: false
   },
   {
-    source: "dpv",
-    name: "dpv_prov_satelital",
-    group: "raster",
+    source: 'dpv',
+    name: 'dpv_prov_satelital',
+    group: 'raster',
     visibility: false
   },
   {
-    source: "dpv",
-    name: "dpv_aybal_rasterhd",
-    group: "raster",
+    source: 'dpv',
+    name: 'dpv_aybal_rasterhd',
+    group: 'raster',
     visibility: false
   },
   {
-    source: "dpv",
-    name: "dpv_pilco_rasterhd",
-    group: "raster",
+    source: 'dpv',
+    name: 'dpv_pilco_rasterhd',
+    group: 'raster',
     visibility: false
   },
   {
-    source: "dpv",
-    name: "dpv_lomitas_rasterhd",
-    group: "raster",
+    source: 'dpv',
+    name: 'dpv_lomitas_rasterhd',
+    group: 'raster',
     visibility: false
   },
   //----- POLIGONOS
   {
-    source: "dgct",
-    name: "ParcelasRurales",
-    title: "Parcelas Rurales",
-    group: "cartografia",
+    source: 'dgct',
+    name: 'ParcelasRurales',
+    title: 'Parcelas Rurales',
+    group: 'cartografia',
     visibility: false,
     tiled: false
   },
   {
-    source: "dgct",
-    name: "ParcelasUrbanas",
-    title: "Parcelas Urbanas",
-    group: "cartografia",
+    source: 'dgct',
+    name: 'ParcelasUrbanas',
+    title: 'Parcelas Urbanas',
+    group: 'cartografia',
     visibility: false,
     tiled: false
   },
   {
-    source: "dgct",
-    name: "Circunscripciones",
-    group: "cartografia",
+    source: 'dgct',
+    name: 'Circunscripciones',
+    group: 'cartografia',
     visibility: false,
     tiled: false
   },
   {
-    source: "dgct",
-    name: "Ejidos",
-    title: "Ejidos Municipales",
-    group: "cartografia",
+    source: 'dgct',
+    name: 'Ejidos',
+    title: 'Ejidos Municipales',
+    group: 'cartografia',
     visibility: false,
     tiled: false
   },
   {
-    source: "dgct",
-    name: "Manzanas",
-    group: "cartografia",
+    source: 'dgct',
+    name: 'Manzanas',
+    group: 'cartografia',
     visibility: false,
     tiled: false
   },
   {
-    source: "dec",
-    name: "censo2010_xradio",
-    group: "estadistica",
-    title: "Censo 2010 por Radio censal (sujeto a revisión)",
+    source: 'dec',
+    name: 'censo2010_xradio',
+    group: 'estadistica',
+    title: 'Censo 2010 por Radio censal (sujeto a revisión)',
     visibility: false
   },
   {
-    source: "dec",
-    name: "censo2010_xdpto",
-    group: "estadistica",
-    title: "Censo 2010 por Dpto. (sujeto a revisión)",
+    source: 'dec',
+    name: 'censo2010_xdpto',
+    group: 'estadistica',
+    title: 'Censo 2010 por Dpto. (sujeto a revisión)',
     visibility: false
   },
   {
-    source: "mpa",
-    name: "reservas",
-    group: "reservas",
+    source: 'mpa',
+    name: 'reservas',
+    group: 'reservas',
     visibility: false
   },
   {
-    source: "upca",
-    name: "cuencas_hidricas",
-    group: "hidrografia",
+    source: 'upca',
+    name: 'cuencas_hidricas',
+    group: 'hidrografia',
     visibility: false
   },
   {
-    source: "upca",
-    name: "lagu_embal_est_baniado",
-    group: "hidrografia",
+    source: 'upca',
+    name: 'lagu_embal_est_baniado',
+    group: 'hidrografia',
     visibility: false
   },
   {
-    source: "upca",
-    name: "sist_baniado_estrella",
-    group: "hidrografia",
+    source: 'upca',
+    name: 'sist_baniado_estrella',
+    group: 'hidrografia',
     visibility: false
   },
   {
-    source: "mce",
-    name: "mce_delzonales",
-    group: "educacion",
-    title: "Delegaciones Zonales",
+    source: 'mce',
+    name: 'mce_delzonales',
+    group: 'educacion',
+    title: 'Delegaciones Zonales',
     visibility: false
   },
   //-----  LINEAS
   {
-    source: "dpv",
-    name: "dpv_prov_redterciaria",
-    group: "viasdecom",
+    source: 'dpv',
+    name: 'dpv_prov_redterciaria',
+    group: 'viasdecom',
     visibility: false
   },
   {
-    source: "dpv",
-    name: "dpv_prov_rutasprov",
-    group: "viasdecom"
+    source: 'dpv',
+    name: 'dpv_prov_rutasprov',
+    group: 'viasdecom'
   },
   {
-    source: "dpv",
-    name: "dpv_prov_rutasnac",
-    group: "viasdecom"
+    source: 'dpv',
+    name: 'dpv_prov_rutasnac',
+    group: 'viasdecom'
   },
   {
-    source: "dpv",
-    name: "dpv_prov_distritosdpv",
-    group: "viasdecom",
+    source: 'dpv',
+    name: 'dpv_prov_distritosdpv',
+    group: 'viasdecom',
     visibility: false
   },
   {
-    source: "ign",
-    name: "ign:lineas_de_transporte_ferroviario_AN010",
-    group: "ign",
+    source: 'ign',
+    name: 'ign:lineas_de_transporte_ferroviario_AN010',
+    group: 'ign',
     visibility: false
   },
   {
-    source: "upca",
-    name: "canales_correderas",
-    group: "hidrografia",
+    source: 'upca',
+    name: 'canales_correderas',
+    group: 'hidrografia',
     visibility: false
   },
   {
-    source: "upca",
-    name: "riachos_arroyos",
-    group: "hidrografia",
+    source: 'upca',
+    name: 'riachos_arroyos',
+    group: 'hidrografia',
     visibility: false
   },
   {
-    source: "upca",
-    name: "rios_principales",
-    group: "hidrografia",
+    source: 'upca',
+    name: 'rios_principales',
+    group: 'hidrografia',
     visibility: false
   },
   {
-    source: "upsti",
-    name: "tendido-fibra",
-    group: "comunicacion",
+    source: 'upsti',
+    name: 'tendido-fibra',
+    group: 'comunicacion',
     visibility: false
   },
   //----- PUNTOS
   {
-    source: "mce",
-    name: "mce_fp",
-    group: "educacion",
+    source: 'mce',
+    name: 'mce_fp',
+    group: 'educacion',
     // title:"Unidades Educativas (sujeto a revisión)",
     visibility: false
   },
   {
-    source: "mce",
-    name: "mce_permanente",
-    group: "educacion",
+    source: 'mce',
+    name: 'mce_permanente',
+    group: 'educacion',
     // title:"Unidades Educativas (sujeto a revisión)",
     visibility: false
   },
   {
-    source: "mce",
-    name: "mce_especial",
-    group: "educacion",
+    source: 'mce',
+    name: 'mce_especial',
+    group: 'educacion',
     // title:"Unidades Educativas (sujeto a revisión)",
     visibility: false
   },
   {
-    source: "mce",
-    name: "mce_superior",
-    group: "educacion",
+    source: 'mce',
+    name: 'mce_superior',
+    group: 'educacion',
     // title:"Unidades Educativas (sujeto a revisión)",
     visibility: false
   },
   {
-    source: "mce",
-    name: "mce_secundario",
-    group: "educacion",
+    source: 'mce',
+    name: 'mce_secundario',
+    group: 'educacion',
     // title:"Unidades Educativas (sujeto a revisión)",
     visibility: false
   },
   {
-    source: "mce",
-    name: "mce_primario",
-    group: "educacion",
+    source: 'mce',
+    name: 'mce_primario',
+    group: 'educacion',
     // title:"Unidades Educativas (sujeto a revisión)",
     visibility: false
   },
   {
-    source: "mce",
-    name: "mce_inicial",
-    group: "educacion",
+    source: 'mce',
+    name: 'mce_inicial',
+    group: 'educacion',
     // title:"Unidades Educativas (sujeto a revisión)",
     visibility: false
   },
   {
-    source: "upca",
-    name: "red_hidrometrica",
-    group: "hidrografia",
+    source: 'upca',
+    name: 'red_hidrometrica',
+    group: 'hidrografia',
     visibility: false
   },
   {
-    source: "upca",
-    name: "red_pluviometrica",
-    group: "hidrografia",
+    source: 'upca',
+    name: 'red_pluviometrica',
+    group: 'hidrografia',
     visibility: false
   },
   {
-    source: "ign",
-    name: "ign:puntos_de_asentamientos_y_edificios_localidad",
-    group: "ign",
-    title: "Localidades",
+    source: 'ign',
+    name: 'ign:puntos_de_asentamientos_y_edificios_localidad',
+    group: 'ign',
+    title: 'Localidades',
     visibility: false
   },
   {
-    source: "upsti",
-    name: "puntos-conectados",
-    group: "comunicacion",
+    source: 'upsti',
+    name: 'puntos-conectados',
+    group: 'comunicacion',
+    visibility: false
+  },
+  {
+    source: 'dpv',
+    name: 'Localidades',
+    group: 'viasdecom',
+    title: 'Localidades y Parajes',
     visibility: false
   },
   //----- LABELS
   {
-    source: "dgct",
-    name: "Calles",
-    group: "cartografia",
+    source: 'dgct',
+    name: 'Calles',
+    group: 'cartografia',
     tiled: false,
     visibility: false
   }
