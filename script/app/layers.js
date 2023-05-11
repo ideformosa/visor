@@ -224,7 +224,7 @@ var layers = [
   //-----  LINEAS
   {
     source: 'dpv',
-    name: 'dpv_prov_redterciaria',
+    name: 'Caminos Vecinales',
     group: 'viasdecom',
     visibility: false
   },
