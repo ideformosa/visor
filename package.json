@@ -30,7 +30,7 @@
     "ant": "^0.2.0",
     "cors-anywhere": "^0.4.1",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.8.0"
   }
 }
