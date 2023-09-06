@@ -125,7 +125,7 @@ layouts:
             #align: right
             maxWidth: 130
             maxHeight: 39
-            url: 'http://idef.formosa.gob.ar/idef.png'
+            url: 'https://idef.formosa.gob.ar/idef.png'
           # - !text
           #   font: Helvetica
           #   fontSize: 30
