@@ -26,10 +26,7 @@ idef.visor = (function () {
 
   function initApp() {
     _app = new gxp.Viewer({
-      // PROD
       // proxy: "/proxy/",
-      // DEV
-      // proxy: "http://localhost:8080/",
 
       portalConfig: {
         layout: 'border',
