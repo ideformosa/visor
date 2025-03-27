@@ -224,13 +224,13 @@ var layers = [
   //-----  LINEAS
   {
     source: 'dpv',
-    name: 'Caminos Vecinales',
+    name: 'caminos_vecinales_ftp',
     group: 'viasdecom',
     visibility: false
   },
   {
     source: 'dpv',
-    name: 'dpv_prov_rutasprov',
+    name: 'rutas_provinciales_ftp',
     group: 'viasdecom'
   },
   {
