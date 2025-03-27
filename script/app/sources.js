@@ -1,5 +1,8 @@
 var IDEF_BASE_URL = 'https://idef.formosa.gob.ar';
 
+// development
+// var IDEF_BASE_URL = 'http://0.0.0.0:8080/https://idef.formosa.gob.ar';
+
 var sources = {
   dec: {
     url: IDEF_BASE_URL + '/servicios/dec/wms?',
@@ -42,7 +45,7 @@ var sources = {
     version: '1.1.1'
   },
   ign: {
-    url: IDEF_BASE_URL + '/proxy/https://wms.ign.gob.ar/geoserver/wms?',
+    url: IDEF_BASE_URL + 'https://wms.ign.gob.ar/geoserver/wms?',
     title: 'Instituto Geográfico Nacional',
     version: '1.1.1'
   },
