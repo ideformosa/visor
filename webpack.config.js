@@ -1,4 +1,5 @@
 module.exports = {
+  entry: './script/app/app.js',
   devServer: {
     port: 9009,
     hot: true,
